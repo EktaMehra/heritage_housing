@@ -34,3 +34,14 @@ hypotheses = {
     }
 }
 
+# Select hypothesis
+hypo_choice = st.selectbox("Choose a hypothesis to test", list(hypotheses.keys()))
+selected = hypotheses[hypo_choice]
+feature = selected["feature"]
+
+st.markdown(f"### 🧪 Testing Hypothesis: *{hypo_choice}*")
+
+# Log-transform target if not already
+if "logsaleprice" not in df.columns:
+    df["logsaleprice"] = np.log1p(df["saleprice"])
+
