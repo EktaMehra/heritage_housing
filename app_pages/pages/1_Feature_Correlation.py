@@ -43,3 +43,8 @@ sns.scatterplot(x=df[feature], y=df['LogSalePrice'], ax=ax2)
 ax2.set_xlabel(feature)
 ax2.set_ylabel("LogSalePrice")
 st.pyplot(fig2)
+
+import pandas as pd
+
+def load_cleaned_data(path='data/processed/df_cleaned.csv'):
+    return pd.read_csv(path)
