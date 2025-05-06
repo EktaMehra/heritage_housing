@@ -32,3 +32,14 @@ top_features = target_corr.head(top_n).index.tolist()
 fig, ax = plt.subplots(figsize=(10, 8))
 sns.heatmap(df[top_features].corr(), annot=True, cmap='coolwarm', fmt=".2f", ax=ax)
 st.pyplot(fig)
+
+# Feature selector and scatter plot
+st.subheader("Scatter Plot Explorer")
+
+feature = st.selectbox("Choose a feature to compare against LogSalePrice", top_features[1:])  # skip LogSalePrice
+
+fig2, ax2 = plt.subplots()
+sns.scatterplot(x=df[feature], y=df['LogSalePrice'], ax=ax2)
+ax2.set_xlabel(feature)
+ax2.set_ylabel("LogSalePrice")
+st.pyplot(fig2)
