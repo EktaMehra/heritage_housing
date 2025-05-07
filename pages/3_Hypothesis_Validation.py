@@ -2,9 +2,9 @@ import streamlit as st
 from PIL import Image
 
 def app():
-    # BANNER IMAGE 
-    image_path = "static/images/hypothesis_header.png"
-    output_path = "static/images/hypothesis_header_converted.png"
+    # Header Image 
+    image_path = "static/images/hypothesis_header.jpg"
+    output_path = "static/images/hypothesis_header_converted.jpg"
 
     try:
         with Image.open(image_path) as img:

@@ -2,23 +2,7 @@
 
 import streamlit as st
 
-st.set_page_config(
-    page_title="Heritage Housing Price Predictor",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="Heritage Housing App", layout="wide")
 
-st.title("Heritage Housing Price Prediction App")
-st.markdown("""
-Welcome to the Heritage Housing Dashboard.
-
-Use the sidebar to explore:
-- Feature correlations
-- Hypothesis testing
-- Price predictions
-- Project insights and technical summary
-
----
-
-This app is built as part of the **PP5 Predictive Analytics** milestone.
-""")
+st.markdown("# Heritage Housing Dashboard")
+st.markdown("Use the sidebar to navigate through app features.")
