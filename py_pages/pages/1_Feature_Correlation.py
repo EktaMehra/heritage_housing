@@ -6,28 +6,41 @@ from utils.load_data import load_cleaned_data
 import plotly.express as px
 from PIL import Image
 
+# Header Image
+image_path = "static/images/fT_corr_header.jpg"
+output_path = "static/images/ft_corr_header_converted.jpg"
+
+try:
+    with Image.open(image_path) as img:
+        img = img.convert("RGB")
+        img = img.resize((600, 200))
+        img.save(output_path, format="PNG")
+except Exception as e:
+    print(f"Error processing image: {e}")
+
+st.image(output_path, use_container_width=True)
+
+# Title & Intro
 st.title("Feature Correlation Analysis")
-st.write("This page helps visualize how different numerical features relate to the target variable `LogSalePrice`.")
+st.markdown("""
+Explore how different property attributes correlate with house sale prices.
+Correlation values:
+- **+1** = strong positive
+- **-1** = strong negative
+- **0** = no correlation
+---
+""")
 
-# Load data
-df = load_cleaned_data()
+# Load Data
+try:
+    df = pd.read_csv("data/processed/final/x_test.csv")
+    y = pd.read_csv("data/processed/final/y_test.csv")
+    df["LogSalePrice"] = y["LogSalePrice"]
+    st.write(f"Dataset: **{df.shape[0]} rows** × **{df.shape[1]} columns**")
+    st.dataframe(df.head())
 
-# Select numeric features + correlation matrix
-# Filter numeric columns
-numeric_df = df.select_dtypes(include='number')
-
-# Calculate correlation with LogSalePrice
-corr_matrix = numeric_df.corr()
-
-# Select correlations with LogSalePrice only
-target_corr = corr_matrix['LogSalePrice'].sort_values(ascending=False)
-
-# Plot full correlation heatmap
-st.subheader("Correlation Heatmap")
-
-top_n = st.slider("Select Top N Features by Correlation with LogSalePrice", 5, 30, 10)
-
-top_features = target_corr.head(top_n).index.tolist()
+    # Correlation matrix
+    corr_matrix = df.corr()
 
 # Plot heatmap for top correlated features
 fig, ax = plt.subplots(figsize=(10, 8))
