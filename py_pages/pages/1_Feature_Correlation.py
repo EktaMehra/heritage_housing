@@ -7,7 +7,7 @@ import plotly.express as px
 from PIL import Image
 
 # Header Image
-image_path = "static/images/fT_corr_header.jpg"
+image_path = "static/images/ft_corr_header.jpg"
 output_path = "static/images/ft_corr_header_converted.jpg"
 
 try:
@@ -42,23 +42,56 @@ try:
     # Correlation matrix
     corr_matrix = df.corr()
 
-# Plot heatmap for top correlated features
-fig, ax = plt.subplots(figsize=(10, 8))
-sns.heatmap(df[top_features].corr(), annot=True, cmap='coolwarm', fmt=".2f", ax=ax)
-st.pyplot(fig)
+    # Heatmap Toggle
+    st.header("Feature Correlation Heatmap")
+    heatmap_type = st.radio("Choose view:", ["Standard Heatmap", "Custom Heatmap"])
 
-# Feature selector and scatter plot
-st.subheader("Scatter Plot Explorer")
+    if heatmap_type == "Standard Heatmap":
+        fig = px.imshow(corr_matrix, title="Full Correlation Matrix", text_auto=".2f", width=1000, height=800)
+        st.plotly_chart(fig)
 
-feature = st.selectbox("Choose a feature to compare against LogSalePrice", top_features[1:])  # skip LogSalePrice
+    elif heatmap_type == "Custom Heatmap":
+        features = st.multiselect("Select features:", df.columns.tolist(), default=["LogSalePrice"])
+        if len(features) > 1:
+            fig = px.imshow(df[features].corr(), title="Custom Correlation Heatmap", text_auto=".2f", width=1000, height=800)
+            st.plotly_chart(fig)
+        else:
+            st.warning("Select at least two features.")
 
-fig2, ax2 = plt.subplots()
-sns.scatterplot(x=df[feature], y=df['LogSalePrice'], ax=ax2)
-ax2.set_xlabel(feature)
-ax2.set_ylabel("LogSalePrice")
-st.pyplot(fig2)
+    # Bar Chart: Top Correlation
+    st.subheader("Top Correlated Features")
+    top_n = st.slider("How many top features to show?", 5, 30, 10)
+    top_corr = corr_matrix["LogSalePrice"].drop("LogSalePrice").abs().sort_values(ascending=False).head(top_n)
+    fig = px.bar(
+        x=top_corr.values,
+        y=top_corr.index,
+        orientation='h',
+        labels={"x": "Correlation", "y": "Feature"},
+        title="Top Correlated Features with LogSalePrice",
+        color=top_corr.values,
+        color_continuous_scale="Teal"
+    )
+    st.plotly_chart(fig)
 
-import pandas as pd
+    # Pairplot Section
+    st.subheader("🔗 Feature Pair Relationships")
+    pairplot_features = st.multiselect("Choose features to plot", top_corr.index.tolist(), default=top_corr.index[:3].tolist())
 
-def load_cleaned_data(path='data/processed/df_cleaned.csv'):
-    return pd.read_csv(path)
+    if pairplot_features:
+        fig = px.scatter_matrix(df, dimensions=pairplot_features + ["LogSalePrice"], color="LogSalePrice")
+        st.plotly_chart(fig)
+
+    # Insights
+    st.header("Key Insights")
+    st.markdown("""
+- **Overall Quality** and **GrLivArea** are top predictors of price.
+- **GarageArea**, **1stFlrSF**, and **LotArea** show moderate positive influence.
+- Weak or negative features may introduce noise or multicollinearity.
+- Use this analysis to guide feature selection for your model.
+""")
+
+except FileNotFoundError:
+    st.error("Could not find processed correlation dataset. Check your file path.")
+
+except Exception as e:
+    st.error(f"Error during correlation analysis: {e}")
