@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 from utils.load_data import load_cleaned_data
+import plotly.express as px
+from PIL import Image
 
 st.title("Feature Correlation Analysis")
 st.write("This page helps visualize how different numerical features relate to the target variable `LogSalePrice`.")
