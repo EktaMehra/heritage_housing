@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 def app():
-    # === BANNER IMAGE ===
+    # BANNER IMAGE 
     image_path = "static/images/hypothesis_header.png"
     output_path = "static/images/hypothesis_header_converted.png"
 
@@ -16,7 +16,7 @@ def app():
     
     st.image(output_path, use_container_width=True)
 
-    # === PAGE TITLE ===
+    # PAGE TITLE
     st.title("🔬 Hypothesis Validation")
     st.markdown("""
     ### Evaluating Hypotheses for Heritage Housing
@@ -25,7 +25,7 @@ def app():
     ---
     """)
 
-    # === HYPOTHESIS LIST ===
+    # HYPOTHESIS LIST 
     st.header("📋 Project Hypotheses")
     st.write("""
     The following hypotheses were formulated during the Heritage Housing analysis:
@@ -42,7 +42,7 @@ def app():
     """)
     st.markdown("---")
 
-    # === HYPOTHESIS 1: CORRELATIONS ===
+    # HYPOTHESIS 1: CORRELATIONS 
     st.subheader("🔑 Hypothesis 1: Feature Correlation Drives Value")
     st.write("""
     **Hypothesis:** Property characteristics such as quality, size, and basement finish will correlate strongly with log-transformed sale price.
@@ -69,7 +69,7 @@ def app():
 
     st.markdown("---")
 
-    # === HYPOTHESIS 2: MODEL PERFORMANCE ===
+    # HYPOTHESIS 2: MODEL PERFORMANCE
     st.subheader("📈 Hypothesis 2: Model Accuracy Meets Business Need")
     st.write("""
     **Hypothesis:** A Random Forest or XGBoost model will achieve an R² score of at least 0.75 on the test set, indicating good generalization.
@@ -91,7 +91,7 @@ def app():
 
     st.markdown("---")
 
-    # === HYPOTHESIS 3: INHERITED PREDICTIONS ===
+    # HYPOTHESIS 3: INHERITED PREDICTIONS 
     st.subheader("🏠 Hypothesis 3: Inherited Property Pricing is Realistic")
     st.write("""
     **Hypothesis:** Model-generated sale price predictions for inherited properties align with Ames' real estate market trends.
@@ -107,19 +107,19 @@ def app():
             st.download_button("📥 Download", data=file, file_name="inherited_predictions_vs_hypothetical_actuals.png", mime="image/png")
 
     with st.expander("📊 Residuals for Random Forest Model"):
-        st.image("outputs/visuals/inherited_rf_residuals.png", caption="Residuals - Random Forest", use_container_width=True)
-        with open("outputs/visuals/inherited_rf_residuals.png", "rb") as file:
-            st.download_button("📥 Download", data=file, file_name="inherited_rf_residuals.png", mime="image/png")
+        st.image("outputs/visuals/residual_distribution_rf_inherited.png", caption="Residuals - Random Forest", use_container_width=True)
+        with open("outputs/visuals/residual_distribution_rf_inherited.png", "rb") as file:
+            st.download_button("📥 Download", data=file, file_name="residual_distribution_rf_inherited.png", mime="image/png")
 
     with st.expander("📊 Residuals for XGBoost Model"):
-        st.image("outputs/visuals/inherited_xgb_residuals.png", caption="Residuals - XGBoost", use_container_width=True)
-        with open("outputs/visuals/inherited_xgb_residuals.png", "rb") as file:
-            st.download_button("📥 Download", data=file, file_name="inherited_xgb_residuals.png", mime="image/png")
+        st.image("outputs/visuals/residual_distribution_xgb_inherited.png", caption="Residuals - XGBoost", use_container_width=True)
+        with open("outputs/visuals/residual_distribution_xgb_inherited.png", "rb") as file:
+            st.download_button("📥 Download", data=file, file_name="residual_distribution_xgb_inherited.png", mime="image/png")
 
     st.markdown("---")
 
-    # === SUMMARY ===
-    st.header("🏆 Hypothesis Summary")
+    # SUMMARY 
+    st.header("Hypothesis Summary")
     st.write("""
 - **Strong correlation** confirmed between features like `OverallQual`, `GrLivArea`, `GarageArea`, and sale prices.
 - **Model performance** met the business requirement with **R² > 0.75**.
@@ -130,7 +130,7 @@ These findings validate the business viability of the machine learning solution 
 
     st.markdown("---")
 
-    # === CONCLUSION ===
+    # CONCLUSION
     st.header("📊 Conclusion")
     st.write("""
 The hypothesis testing confirms that:
