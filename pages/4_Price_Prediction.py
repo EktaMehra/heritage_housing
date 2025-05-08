@@ -93,6 +93,19 @@ try:
 except Exception as e:
     st.error(f"❌ Could not load inherited predictions: {e}")
 
+# 🔍 DEBUG: Inspect expected feature schema from pipeline
+try:
+    pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
+    expected_features = pipeline.named_steps['preprocessor'].feature_names_in_
+    st.write("🧠 Expected input features for this pipeline:")
+    st.code(expected_features.tolist())
+
+    st.write("📥 Your form is providing these columns:")
+    st.code(input_data.columns.tolist())
+
+except Exception as e:
+    st.warning(f"⚠️ Could not inspect pipeline feature schema: {e}")
+
 st.markdown("---")
 
 # === CUSTOM PRICE PREDICTION ===
