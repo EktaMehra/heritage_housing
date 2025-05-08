@@ -72,11 +72,17 @@ st.subheader("Hypothesis 2: Model Accuracy Meets Business Need")
 st.write("""
 **Validation Steps:**
 - Trained both Random Forest and XGBoost
-- Evaluated R², MAE, and RMSE on test data
+- Evaluated model performance using **R²**, **MAE**, and **RMSE** on test data
 """)
 
 with st.expander("📊 R² Scores Across Models"):
-    image_block("outputs/visuals/r2_scores_comparison.png", "Model R² Comparison")
+    image_block("outputs/visuals/r²_score_comparison.png", "Model R² Comparison")
+
+with st.expander("📊 MAE Scores Across Models"):
+    image_block("outputs/visuals/mae_score_comparison.png", "Model R² Comparison")
+
+with st.expander("📊 RMSE Scores Across Models"):
+    image_block("outputs/visuals/rmse_score_comparison.png", "Model R² Comparison")
 
 with st.expander("📊 Predicted vs Actual Sale Prices"):
     image_block("outputs/visuals/predicted_vs_actual_rf_vs_gbr.png", "Predicted vs Actual on Test Data")
@@ -87,8 +93,9 @@ st.markdown("---")
 st.subheader("Hypothesis 3: Inherited Property Pricing is Realistic")
 st.write("""
 **Validation Steps:**
-- Predictions generated for 4 inherited houses
-- Compared to market trends and analyzed residuals
+- Predictions were generated for 4 inherited houses using the final model
+- These predictions were compared against internally defined hypothetical sale prices that reflect typical Ames market ranges
+- Residuals were calculated and visualized to assess prediction stability
 """)
 
 with st.expander("📊 Predicted vs Actual for Inherited (Log Sale Price)"):
@@ -107,7 +114,7 @@ st.header("Hypothesis Summary")
 st.write("""
 - **Strong correlation** confirmed between key features and prices.
 - **R² > 0.75** achieved on test data.
-- **Inherited property pricing** aligned with Ames market expectations.
+- **Inherited property pricing** aligned with expected Ames market ranges based on hypothetical benchmarks.
 """)
 
 st.header("Conclusion")
