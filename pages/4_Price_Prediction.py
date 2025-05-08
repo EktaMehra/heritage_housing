@@ -93,19 +93,6 @@ try:
 except Exception as e:
     st.error(f"❌ Could not load inherited predictions: {e}")
 
-# 🔍 DEBUG: Inspect expected feature schema from pipeline
-try:
-    pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
-    expected_features = pipeline.named_steps['preprocessor'].feature_names_in_
-    st.write("🧠 Expected input features for this pipeline:")
-    st.code(expected_features.tolist())
-
-    st.write("📥 Your form is providing these columns:")
-    st.code(input_data.columns.tolist())
-
-except Exception as e:
-    st.warning(f"⚠️ Could not inspect pipeline feature schema: {e}")
-
 st.markdown("---")
 
 # === CUSTOM PRICE PREDICTION ===
@@ -113,82 +100,78 @@ st.header("🎯 Custom Price Prediction")
 
 with st.expander("ℹ️ How to use this form"):
     st.markdown("""
-    Enter values for a new property below. Fields reflect those used in the model.
-    Units are included where applicable.
+    Enter property details below to estimate the potential sale price.  
+    Make sure all fields are filled accurately — units are shown next to each input.
     """)
 
-# --- Form UI ---
-raw_input_df = pd.DataFrame()
+# --- Input Form ---
 with st.form("prediction_form"):
     col1, col2, col3, col4 = st.columns(4)
     now = datetime.datetime.now().year
 
     with col1:
-        lot_frontage = st.number_input("Lot Frontage (ft)", 0.0, 200.0, 60.0)
-        mas_vnr_area = st.number_input("Masonry Veneer Area (sqft)", 0.0, 1500.0, 150.0)
-        year_built = st.number_input("Year Built", 1800, now, 1970)
-        bedroom_abv_gr = st.number_input("Bedrooms Above Ground", 0, 10, 3)
-        garage_area = st.number_input("Garage Area (sqft)", 0, 1500, 400)
+        LotFrontage = st.number_input("Lot Frontage (ft)", 0.0, 200.0, 60.0)
+        MasVnrArea = st.number_input("Masonry Veneer Area (sqft)", 0.0, 1500.0, 150.0)
+        YearBuilt = st.number_input("Year Built", 1800, now, 1970)
+        BedroomAbvGr = st.number_input("Bedrooms Above Ground", 0, 10, 3)
+        GarageArea = st.number_input("Garage Area (sqft)", 0, 1500, 400)
 
     with col2:
-        lot_area = st.number_input("Lot Area (sqft)", 1000, 30000, 8500)
-        bsmt_fin_sf1 = st.number_input("Finished Basement (sqft)", 0, 2000, 700)
-        gr_liv_area = st.number_input("Above Ground Living Area (sqft)", 500, 4000, 1500)
-        second_flr_sf = st.number_input("Second Floor Area (sqft)", 0, 2000, 500)
-        garage_yr_blt = st.number_input("Garage Year Built", 1800, now, 1975)
+        LotArea = st.number_input("Lot Area (sqft)", 1000, 30000, 8500)
+        BsmtFinSF1 = st.number_input("Finished Basement (sqft)", 0, 2000, 700)
+        GrLivArea = st.number_input("Above Ground Living Area (sqft)", 500, 4000, 1500)
+        SecondFlrSF = st.number_input("Second Floor Area (sqft)", 0, 2000, 500)
+        GarageYrBlt = st.number_input("Garage Year Built", 1800, now, 1975)
 
     with col3:
-        open_porch_sf = st.number_input("Open Porch Area (sqft)", 0, 500, 40)
-        total_bsmt_sf = st.number_input("Total Basement Area (sqft)", 0, 3000, 1000)
-        year_remod = st.number_input("Year Remodeled", 1800, now, 2000)
-        bsmt_unf_sf = st.number_input("Unfinished Basement (sqft)", 0, 2000, 300)
-        first_flr_sf = st.number_input("1st Floor Area (sqft)", 500, 2500, 1200)
-    
+        OpenPorchSF = st.number_input("Open Porch Area (sqft)", 0, 500, 40)
+        TotalBsmtSF = st.number_input("Total Basement Area (sqft)", 0, 3000, 1000)
+        YearRemodAdd = st.number_input("Year Remodeled", 1800, now, 2000)
+        BsmtUnfSF = st.number_input("Unfinished Basement (sqft)", 0, 2000, 300)
+        FirstFlrSF = st.number_input("1st Floor Area (sqft)", 500, 2500, 1200)
+
     with col4:
-        bsmtexposure = st.selectbox("Basement Exposure", options=["Gd", "Av", "Mn", "No"], index=1)
-        bsmtfintype1 = st.selectbox("Finished Basement Type", options=["GLQ", "ALQ", "BLQ", "Rec", "LwQ", "Unf"], index=5)
-        garagefinish = st.selectbox("Garage Finish Quality", options=["Fin", "RFn", "Unf"], index=2)
-        kitchenqual = st.selectbox("Kitchen Quality", options=["Ex", "Gd", "TA", "Fa", "Po"], index=2)
+        BsmtExposure = st.selectbox("Basement Exposure", ["Gd", "Av", "Mn", "No"])
+        BsmtFinType1 = st.selectbox("Finished Basement Type", ["GLQ", "ALQ", "BLQ", "Rec", "LwQ", "Unf"])
+        GarageFinish = st.selectbox("Garage Finish", ["Fin", "RFn", "Unf"])
+        KitchenQual = st.selectbox("Kitchen Quality", ["Ex", "Gd", "TA", "Fa", "Po"])
 
-
-    overall_qual = st.slider("Overall Quality (1-10)", 1, 10, 5)
-    overall_cond = st.slider("Overall Condition (1-10)", 1, 10, 5)
+    OverallQual = st.slider("Overall Quality (1–10)", 1, 10, 5)
+    OverallCond = st.slider("Overall Condition (1–10)", 1, 10, 5)
 
     submitted = st.form_submit_button("🔍 Predict Price")
 
-# --- Model Prediction Logic ---
+# --- Prediction Logic ---
 if submitted:
-    # Step 1: Create DataFrame from input
     input_data = pd.DataFrame([{
-        "num__lotfrontage": lot_frontage,
-        "num__lotarea": lot_area,
-        "num__openporchsf": open_porch_sf,
-        "num__masvnrarea": mas_vnr_area,
-        "num__bsmtfinsf1": bsmt_fin_sf1,
-        "num__totalbsmtsf": total_bsmt_sf,
-        "num__yearbuilt": year_built,
-        "num__grlivarea": gr_liv_area,
-        "num__yearremodadd": year_remod,
-        "num__overallqual": overall_qual,
-        "num__overallcond": overall_cond,
-        "num__bedroomabvgr": bedroom_abv_gr,
-        "num__2ndflrsf": second_flr_sf,
-        "num__bsmtunfsf": bsmt_unf_sf,
-        "num__garagearea": garage_area,
-        "num__garageyrblt": garage_yr_blt,
-        "num__1stflrsf": first_flr_sf,
-        "cat__bsmtexposure": bsmtexposure.capitalize(),
-        "cat__bsmtfintype1": bsmtfintype1.capitalize(),
-        "cat__garagefinish": garagefinish.capitalize(),
-        "cat__kitchenqual": kitchenqual.capitalize(),
-}])
-
-
+        "1stFlrSF": FirstFlrSF,
+        "2ndFlrSF": SecondFlrSF,
+        "BedroomAbvGr": BedroomAbvGr,
+        "BsmtFinSF1": BsmtFinSF1,
+        "BsmtUnfSF": BsmtUnfSF,
+        "GarageArea": GarageArea,
+        "GarageYrBlt": GarageYrBlt,
+        "GrLivArea": GrLivArea,
+        "LotArea": LotArea,
+        "LotFrontage": LotFrontage,
+        "MasVnrArea": MasVnrArea,
+        "OpenPorchSF": OpenPorchSF,
+        "OverallCond": OverallCond,
+        "OverallQual": OverallQual,
+        "TotalBsmtSF": TotalBsmtSF,
+        "YearBuilt": YearBuilt,
+        "YearRemodAdd": YearRemodAdd,
+        "BsmtExposure": BsmtExposure,
+        "BsmtFinType1": BsmtFinType1,
+        "GarageFinish": GarageFinish,
+        "KitchenQual": KitchenQual,
+    }])
 
     try:
-        input_data.columns = input_data.columns.str.lower()
-
+        # Load full pipeline
         pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
+
+        # Predict log sale price and convert to £
         log_prediction = pipeline.predict(input_data)[0]
         predicted_price = np.expm1(log_prediction)
 
@@ -200,11 +183,11 @@ if submitted:
 
         csv = input_data.to_csv(index=False).encode("utf-8")
         st.download_button(
-        label="📥 Download Prediction Data",
-        data=csv,
-        file_name="custom_prediction.csv",
-        mime="text/csv",
-    )
+            label="📥 Download Prediction Data",
+            data=csv,
+            file_name="custom_prediction.csv",
+            mime="text/csv",
+        )
 
     except Exception as e:
         st.error(f"Prediction failed: {e}")

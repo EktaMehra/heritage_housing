@@ -1,4 +1,4 @@
-1stflrsf,2ndflrsf,bedroomabvgr,bsmtexposure,bsmtfinsf1,bsmtfintype1,bsmtunfsf,garagearea,garagefinish,garageyrblt,grlivarea,kitchenqual,lotarea,lotfrontage,masvnrarea,openporchsf,overallcond,overallqual,totalbsmtsf,yearbuilt,yearremodadd
+1stFlrSF,2ndFlrSF,BedroomAbvGr,BsmtExposure,BsmtFinSF1,BsmtFinType1,BsmtUnfSF,GarageArea,GarageFinish,GarageYrBlt,GrLivArea,KitchenQual,LotArea,LotFrontage,MasVnrArea,OpenPorchSF,OverallCond,OverallQual,TotalBsmtSF,YearBuilt,YearRemodAdd
 1314,0.0,3.0,No,922,Rec,392,294,RFn,1957.0,1314,TA,8400,70.0,0.0,0,6,5,1314,1957,1957
 799,772.0,3.0,No,0,Unf,799,380,RFn,1993.0,1571,TA,7837,59.0,0.0,40,7,6,799,1993,1994
 796,0.0,2.0,No,0,Unf,796,0,None,0.0,796,TA,8777,67.0,0.0,0,7,5,796,1910,1950
