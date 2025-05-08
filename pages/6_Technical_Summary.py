@@ -5,7 +5,7 @@ import os
 st.set_page_config(page_title="Technical Summary", layout="wide")
 
 # --- Header Image ---
-image_path = "static/images/tech_summary_header.png"
+image_path = "static/images/tech_summary_header.jpg"
 output_path = "static/images/tech_summary_header_converted.png"
 
 try:
@@ -18,7 +18,7 @@ except Exception as e:
     st.warning(f"Image load failed: {e}")
 
 # --- Page Title ---
-st.title("🧠 Technical Summary")
+st.title("Technical Summary")
 st.markdown("""
 Explore the technical architecture, modelling pipeline, and performance benchmarks used to deliver sale price predictions for inherited properties in Ames, Iowa.
 ---
@@ -82,18 +82,18 @@ Random Forest consistently outperformed other models in both accuracy and reliab
 """)
 
 with st.expander("📊 R2 Comparison"):
-    st.image("outputs/visuals/comparative_analysis_r2_score.png", caption="R2 Score Comparison")
-    with open("outputs/visuals/comparative_analysis_r2_score.png", "rb") as file:
+    st.image("outputs/visuals/r2_score_comparison.png", caption="R2 Score Comparison")
+    with open("outputs/visuals/r2_score_comparison.png", "rb") as file:
         st.download_button("📥 Download", file, "r2_score_comparison.png", "image/png")
 
 with st.expander("📊 Mean Absolute Error (MAE)"):
-    st.image("outputs/visuals/comparative_analysis_mae.png", caption="MAE Comparison")
-    with open("outputs/visuals/comparative_analysis_mae.png", "rb") as file:
+    st.image("outputs/visuals/mae_score_comparison.png", caption="MAE Comparison")
+    with open("outputs/visuals/mae_score_comparison.png", "rb") as file:
         st.download_button("📥 Download", file, "mae_comparison.png", "image/png")
 
 with st.expander("📊 Mean Squared Error (MSE)"):
-    st.image("outputs/visuals/comparative_analysis_mse.png", caption="MSE Comparison")
-    with open("outputs/visuals/comparative_analysis_mse.png", "rb") as file:
+    st.image("outputs/visuals/rmse_score_comparison.png", caption="MSE Comparison")
+    with open("outputs/visuals/rmse_score_comparison.png", "rb") as file:
         st.download_button("📥 Download", file, "mse_comparison.png", "image/png")
 
 # --- Feature Importance ---
@@ -104,9 +104,9 @@ st.markdown("""
 The chart below shows the top 10 most important features as learned by the final Random Forest model.
 These variables had the greatest influence on sale price prediction.
 """)
-with st.expander("📊 Top 10 Drivers"):
-    st.image("outputs/visuals/top_10_features_random_forest.png", caption="Top 10 Features by Importance")
-    with open("outputs/visuals/top_10_features_random_forest.png", "rb") as file:
+with st.expander("📊 Top 15 Drivers"):
+    st.image("outputs/visuals/rf_feature_importance_top15.png", caption="Top 15 Features by Importance")
+    with open("outputs/visuals/rf_feature_importance_top15.png", "rb") as file:
         st.download_button("📥 Download", file, "top_10_features_random_forest.png", "image/png")
 
 # --- Challenges & Improvements ---
