@@ -1,4 +1,4 @@
-Model,Test R²,Test MAE,Test RMSE
+Model,Test R2,Test MAE,Test RMSE
 Gradient Boosting,0.8774,0.0998,0.1513
 Random Forest,0.8766,0.1018,0.1517
 Ridge Regression,0.8686,0.1081,0.1565

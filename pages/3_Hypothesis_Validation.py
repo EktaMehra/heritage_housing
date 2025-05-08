@@ -33,7 +33,7 @@ st.write("""
    - Attributes such as `OverallQual`, `GrLivArea`, and `GarageArea` are positively correlated with house sale prices.
 
 2. **Model Performance Hypothesis**  
-   - A regression model trained on the dataset can achieve **R² ≥ 0.75** on unseen test data.
+   - A regression model trained on the dataset can achieve **R2 ≥ 0.75** on unseen test data.
 
 3. **Inherited Properties Hypothesis**  
    - The model can predict sale prices for inherited properties aligned with market trends.
@@ -72,17 +72,17 @@ st.subheader("Hypothesis 2: Model Accuracy Meets Business Need")
 st.write("""
 **Validation Steps:**
 - Trained both Random Forest and XGBoost
-- Evaluated model performance using **R²**, **MAE**, and **RMSE** on test data
+- Evaluated model performance using **R2**, **MAE**, and **RMSE** on test data
 """)
 
-with st.expander("📊 R² Scores Across Models"):
-    image_block("outputs/visuals/r²_score_comparison.png", "Model R² Comparison")
+with st.expander("📊 R2 Scores Across Models"):
+    image_block("outputs/visuals/R2_score_comparison.png", "Model R2 Comparison")
 
 with st.expander("📊 MAE Scores Across Models"):
-    image_block("outputs/visuals/mae_score_comparison.png", "Model R² Comparison")
+    image_block("outputs/visuals/mae_score_comparison.png", "Model R2 Comparison")
 
 with st.expander("📊 RMSE Scores Across Models"):
-    image_block("outputs/visuals/rmse_score_comparison.png", "Model R² Comparison")
+    image_block("outputs/visuals/rmse_score_comparison.png", "Model R2 Comparison")
 
 with st.expander("📊 Predicted vs Actual Sale Prices"):
     image_block("outputs/visuals/predicted_vs_actual_rf_vs_gbr.png", "Predicted vs Actual on Test Data")
@@ -113,7 +113,7 @@ st.markdown("---")
 st.header("Hypothesis Summary")
 st.write("""
 - **Strong correlation** confirmed between key features and prices.
-- **R² > 0.75** achieved on test data.
+- **R2 > 0.75** achieved on test data.
 - **Inherited property pricing** aligned with expected Ames market ranges based on hypothetical benchmarks.
 """)
 
