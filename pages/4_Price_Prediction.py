@@ -160,28 +160,29 @@ with st.form("prediction_form"):
 if submitted:
     # Step 1: Create DataFrame from input
     input_data = pd.DataFrame([{
-        "lotfrontage": lot_frontage,
-        "lotarea": lot_area,
-        "openporchsf": open_porch_sf,
-        "masvnrarea": mas_vnr_area,
-        "bsmtfinsf1": bsmt_fin_sf1,
-        "totalbsmtsf": total_bsmt_sf,
-        "yearbuilt": year_built,
-        "grlivarea": gr_liv_area,
-        "yearremodadd": year_remod,
-        "overallqual": overall_qual,
-        "overallcond": overall_cond,
-        "bedroomabvgr": bedroom_abv_gr,
-        "2ndflrsf": second_flr_sf,
-        "bsmtunfsf": bsmt_unf_sf,
-        "garagearea": garage_area,
-        "garageyrblt": garage_yr_blt,
-        "1stflrsf": first_flr_sf,
-        "bsmtexposure": bsmtexposure.lower(),
-        "bsmtfintype1": bsmtfintype1.lower(),
-        "garagefinish": garagefinish.lower(),
-        "kitchenqual": kitchenqual.lower(),
-    }])
+        "num__lotfrontage": lot_frontage,
+        "num__lotarea": lot_area,
+        "num__openporchsf": open_porch_sf,
+        "num__masvnrarea": mas_vnr_area,
+        "num__bsmtfinsf1": bsmt_fin_sf1,
+        "num__totalbsmtsf": total_bsmt_sf,
+        "num__yearbuilt": year_built,
+        "num__grlivarea": gr_liv_area,
+        "num__yearremodadd": year_remod,
+        "num__overallqual": overall_qual,
+        "num__overallcond": overall_cond,
+        "num__bedroomabvgr": bedroom_abv_gr,
+        "num__2ndflrsf": second_flr_sf,
+        "num__bsmtunfsf": bsmt_unf_sf,
+        "num__garagearea": garage_area,
+        "num__garageyrblt": garage_yr_blt,
+        "num__1stflrsf": first_flr_sf,
+        "cat__bsmtexposure": bsmtexposure.capitalize(),
+        "cat__bsmtfintype1": bsmtfintype1.capitalize(),
+        "cat__garagefinish": garagefinish.capitalize(),
+        "cat__kitchenqual": kitchenqual.capitalize(),
+}])
+
 
 
     try:
