@@ -161,15 +161,25 @@ if submitted:
         "TotalBsmtSF": TotalBsmtSF,
         "YearBuilt": YearBuilt,
         "YearRemodAdd": YearRemodAdd,
-        "BsmtExposure": BsmtExposure,
-        "BsmtFinType1": BsmtFinType1,
-        "GarageFinish": GarageFinish,
-        "KitchenQual": KitchenQual,
+        "BsmtExposure_Gd": .0, 
+        "BsmtExposure_Mn": .0,
+        "BsmtExposure_No": .0,
+        "BsmtFinType1_BLQ": .0,
+        "BsmtFinType1_GLQ": .0,
+        "BsmtFinType1_LwQ": .0,
+        "BsmtFinType1_Rec": .0,
+        "BsmtFinType1_Unf": .0,
+        "GarageFinish_RFn": .0,
+        "GarageFinish_Unf": .0,
+        "KitchenQual_Fa": .0,
+        "KitchenQual_Gd": .0,
+        "KitchenQual_TA": .0,
     }])
 
     try:
         # Load full pipeline
         pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
+        print(pipeline)
 
         # Predict log sale price and convert to £
         log_prediction = pipeline.predict(input_data)[0]
