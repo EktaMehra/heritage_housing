@@ -22,7 +22,7 @@ except Exception as e:
     st.warning(f"Image load failed: {e}")
 
 # --- Title ---
-st.title("💸 Heritage Housing Price Prediction")
+st.title("Heritage Housing Price Prediction")
 st.markdown("""
 This page enables users to:
 - View price predictions for inherited houses
@@ -31,7 +31,7 @@ This page enables users to:
 """)
 
 # === INHERITED PROPERTY PREDICTIONS ===
-st.header("🏠 Predicted Prices for Inherited Houses")
+st.header("Predicted Prices for Inherited Houses")
 
 try:
     df_inherited = pd.read_csv("data/processed/final/inherited_properties_display_ready.csv")
@@ -96,7 +96,7 @@ except Exception as e:
 st.markdown("---")
 
 # === CUSTOM PRICE PREDICTION ===
-st.header("🎯 Custom Price Prediction")
+st.header("Custom Price Prediction")
 
 with st.expander("ℹ️ How to use this form"):
     st.markdown("""

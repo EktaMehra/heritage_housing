@@ -26,7 +26,7 @@ It is intended for clients, stakeholders, and property analysts who wish to eval
 """)
 
 # --- Navigation ---
-st.header("🔍 App Navigation")
+st.header("App Navigation")
 st.markdown("""
 Use the sidebar to navigate between different sections:
 - **Home**: Welcome page and project overview.
@@ -38,7 +38,7 @@ Use the sidebar to navigate between different sections:
 """)
 
 # --- Predict Price Section ---
-st.header("🏡 Predicting House Prices")
+st.header("Predicting House Prices")
 st.subheader("Inherited Properties")
 st.markdown("""
 - Navigate to **Price Prediction**
@@ -50,7 +50,7 @@ st.subheader("Custom Prediction")
 st.markdown("""
 - Scroll to the **Custom Price Prediction** section
 - Fill in the form with details like size, year built, garage info, and quality ratings
-- Click **🔍 Predict Price** to generate an estimate
+- Click **Predict Price** to generate an estimate
 - The predicted sale price will appear below the form
 - Optionally download the result as a CSV
 """)

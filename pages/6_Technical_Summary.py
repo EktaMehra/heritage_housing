@@ -74,7 +74,7 @@ elif pipeline_section == "Model Training":
 
 # --- Model Performance ---
 st.markdown("---")
-st.header("📈 Model Performance")
+st.header("Model Performance")
 
 st.markdown("""
 Model performance was evaluated using R2, MAE, and MSE across both training and testing datasets.  
@@ -127,13 +127,13 @@ st.markdown("""
 
 # --- Conclusion ---
 st.markdown("---")
-st.header("✅ Conclusion")
+st.header("Conclusion")
 
 st.markdown("""
 The final model and pipeline met both the technical and business goals of the project:
-- ✅ Achieved **R2 = 0.87** on unseen data
-- ✅ Accurately predicted prices for inherited homes
-- ✅ Delivered a user-friendly app for future property estimation
+- Achieved **R2 = 0.87** on unseen data
+- Accurately predicted prices for inherited homes
+- Delivered a user-friendly app for future property estimation
 
 These results support the model’s reliability for data-driven pricing decisions in the real estate domain.
 """)
