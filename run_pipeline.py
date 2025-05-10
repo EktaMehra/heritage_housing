@@ -1,5 +1,3 @@
-# run_pipeline.py
-
 import pandas as pd
 from deployment_pipeline import predict_from_raw
 
