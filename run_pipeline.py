@@ -1,5 +1,6 @@
 import pandas as pd
-from deployment_pipeline import predict_from_raw
+from utils.deployment_pipeline import predict_from_raw
+
 
 # Paths to required files
 RAW_DATA_PATH = "data/raw/inherited_houses.csv"
