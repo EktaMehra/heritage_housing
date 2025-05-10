@@ -9,7 +9,7 @@ MODEL_PATH = "outputs/models/final_random_forest_pipeline.pkl"
 OUTPUT_PATH = "outputs/predictions/new_data_predictions.csv"
 
 def main():
-    print("[INFO] Running inference using deployment pipeline...")
+    print("Running inference using deployment pipeline...")
 
     # Load new data and reference feature structure
     try:
@@ -28,7 +28,7 @@ def main():
         save_output_path=OUTPUT_PATH
     )
 
-    print("\n[INFO] Sample predictions:")
+    print("\nSample predictions:")
     print(prediction_df[["Predicted_LogSalePrice", "Predicted_SalePrice"]].head())
 
 if __name__ == "__main__":
