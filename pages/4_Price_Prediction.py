@@ -38,31 +38,6 @@ try:
 
     tabs = st.tabs([f"Property {i+1}" for i in range(len(df_inherited))])
 
-    # Units dictionary
-    attribute_units = {
-        "LotFrontage": "ft",
-        "LotArea": "sqft",
-        "OpenPorchSF": "sqft",
-        "MasVnrArea": "sqft",
-        "BsmtFinSF1": "sqft",
-        "GrLivArea": "sqft",
-        "1stFlrSF": "sqft",
-        "2ndFlrSF": "sqft",
-        "BsmtUnfSF": "sqft",
-        "GarageArea": "sqft",
-        "GarageYrBlt": None,
-        "YearBuilt": None,
-        "YearRemodAdd": None,
-        "BedroomAbvGr": "beds",
-        "OverallCond": "/10",
-        "OverallQual": "/10",
-        "Age": "yrs",
-        "LivingLotRatio": ":1",
-        "FinishedBsmtRatio": None,
-        "OverallScore": "/20",
-        "HasPorch": None,
-    }
-
     for i, tab in enumerate(tabs):
         with tab:
             house = df_inherited.iloc[i].to_dict()
@@ -80,7 +55,7 @@ try:
                 <div style="display: flex; justify-content: space-between;">
                     {"".join([
                         f"<div style='width: 33%;'>" + "".join([
-                            f"<p><b>{k}:</b> {int(v) if isinstance(v, float) and v.is_integer() else v} {attribute_units.get(k, '') or ''}</p>"
+                            f"<p><b>{k}:</b> {int(v) if isinstance(v, float) and v.is_integer() else v}</p>"
                         for k, v in group]) + "</div>" for group in [one, two, three]
                     ])}
                 </div>
@@ -143,15 +118,19 @@ with st.form("prediction_form"):
 
 # --- Prediction Logic ---
 if submitted:
-    input_data = pd.DataFrame([{
+    raw_input = pd.DataFrame([{
         "1stFlrSF": FirstFlrSF,
         "2ndFlrSF": SecondFlrSF,
         "BedroomAbvGr": BedroomAbvGr,
+        "BsmtExposure": BsmtExposure,
         "BsmtFinSF1": BsmtFinSF1,
+        "BsmtFinType1": BsmtFinType1,
         "BsmtUnfSF": BsmtUnfSF,
         "GarageArea": GarageArea,
+        "GarageFinish": GarageFinish,
         "GarageYrBlt": GarageYrBlt,
         "GrLivArea": GrLivArea,
+        "KitchenQual": KitchenQual,
         "LotArea": LotArea,
         "LotFrontage": LotFrontage,
         "MasVnrArea": MasVnrArea,
@@ -160,38 +139,21 @@ if submitted:
         "OverallQual": OverallQual,
         "TotalBsmtSF": TotalBsmtSF,
         "YearBuilt": YearBuilt,
-        "YearRemodAdd": YearRemodAdd,
-        "BsmtExposure_Gd": .0, 
-        "BsmtExposure_Mn": .0,
-        "BsmtExposure_No": .0,
-        "BsmtFinType1_BLQ": .0,
-        "BsmtFinType1_GLQ": .0,
-        "BsmtFinType1_LwQ": .0,
-        "BsmtFinType1_Rec": .0,
-        "BsmtFinType1_Unf": .0,
-        "GarageFinish_RFn": .0,
-        "GarageFinish_Unf": .0,
-        "KitchenQual_Fa": .0,
-        "KitchenQual_Gd": .0,
-        "KitchenQual_TA": .0,
+        "YearRemodAdd": YearRemodAdd
     }])
 
     try:
-        # Load full pipeline
         pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
-        print(pipeline)
-
-        # Predict log sale price and convert to £
-        log_prediction = pipeline.predict(input_data)[0]
+        log_prediction = pipeline.predict(raw_input)[0]
         predicted_price = np.expm1(log_prediction)
 
         st.success(f"💰 Predicted Sale Price: **£{predicted_price:,.2f}**")
 
-        input_data["PredictedPrice"] = predicted_price
+        raw_input["Predicted SalePrice"] = predicted_price
         st.markdown("### Prediction Summary")
-        st.dataframe(input_data)
+        st.dataframe(raw_input)
 
-        csv = input_data.to_csv(index=False).encode("utf-8")
+        csv = raw_input.to_csv(index=False).encode("utf-8")
         st.download_button(
             label="📥 Download Prediction Data",
             data=csv,
