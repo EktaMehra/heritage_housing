@@ -5,7 +5,7 @@
 Welcome to the **Heritage Housing Price Prediction** project! This tool is designed to support **local councils, planners, and conservation teams** in evaluating and forecasting the market value of **heritage-listed properties**, with a focus on fairness, transparency, and data-driven decision making.
 
 **View the Live Project:**
-View the live project [here](https://heritage-housing-pricing-d6cd43e01839.herokuapp.com/)
+[Here](https://heritage-housing-pricing-d6cd43e01839.herokuapp.com/)
 
 ### Project Highlights
 
@@ -44,8 +44,8 @@ The project includes the following key datasets:
 
 The datasets have a similar structure, with features that describe important property traits.  The features are broken down as follows:
 
-<details:>
-  <summary>Click to view the detailed feature descriptions:</summary>
+<details>
+  <summary>Click to view the detailed feature descriptions</summary>
 
 - **1stFlrSF**: First floor square footage.
 - **2ndFlrSF**: Second floor square footage.
