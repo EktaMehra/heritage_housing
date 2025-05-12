@@ -19,7 +19,7 @@ except Exception as e:
     st.warning(f"Image header not loaded: {e}")
 
 # --- PAGE TITLE ---
-st.title("Hypothesis Validation")
+st.title("✅ Hypothesis Validation")
 st.markdown("""
 ### Evaluating Hypotheses for Heritage Housing
 This section documents the business hypotheses explored in the project, the methods used to validate them, and conclusions drawn from the findings.

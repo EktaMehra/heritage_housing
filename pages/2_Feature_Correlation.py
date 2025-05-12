@@ -28,7 +28,7 @@ except Exception as e:
     st.warning(f"Image not loaded: {e}")
 
 # --- PAGE TITLE ---
-st.title("Feature Correlation Analysis")
+st.title("📈 Feature Correlation Analysis")
 st.markdown("""
 Explore how different property attributes correlate with house sale prices.
 Correlation values:

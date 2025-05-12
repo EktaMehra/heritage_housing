@@ -18,7 +18,7 @@ except Exception as e:
     st.warning(f"Image load failed: {e}")
 
 # --- Page Title ---
-st.title("Technical Summary")
+st.title("📚 Technical Summary")
 st.markdown("""
 Explore the technical architecture, modelling pipeline, and performance benchmarks used to deliver sale price predictions for inherited properties in Ames, Iowa.
 ---

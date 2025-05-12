@@ -18,27 +18,34 @@ except Exception as e:
     st.warning(f"Image load failed: {e}")
 
 # --- Title ---
-st.title("User Guide")
+st.title("📘 User Guide")
 st.markdown("""
 This page provides instructions on how to use the Heritage Housing Price Prediction App effectively.  
 It is intended for clients, stakeholders, and property analysts who wish to evaluate house prices using machine learning.
 ---
 """)
 
+st.info("""
+**Quick Start**  
+Use the sidebar to access prediction tools, visual insights, and model documentation.  
+Start with **Price Prediction** to test real or custom properties.
+""")
+
+
 # --- Navigation ---
 st.header("App Navigation")
 st.markdown("""
 Use the sidebar to navigate between different sections:
-- **Home**: Welcome page and project overview.
-- **Feature Correlation**: View heatmaps and bar charts to understand which house features impact sale price the most.
-- **Hypothesis Validation**: Explore how the data and models support our business and modelling assumptions.
-- **Price Prediction**: Predict prices for inherited houses or any new custom property input.
-- **Project Summary**: Review the goals, dataset, and high-level findings.
-- **Technical Summary**: Dive into model architecture, pipeline design, and feature importance.
+- 🏠 **Home** — overview and dashboard
+- 📈 **Feature Correlation** — heatmaps and feature importance
+- ✅ **Hypothesis Validation** — test assumptions with visual proofs
+- 💸 **Price Prediction** — get instant predictions for inherited or custom properties
+- 📚 **Technical Summary** — pipeline structure, model performance, and drivers
+- 📘 **User Guide** — you're here!
 """)
 
 # --- Predict Price Section ---
-st.header("Predicting House Prices")
+st.header("🔎 Predicting House Prices")
 st.subheader("Inherited Properties")
 st.markdown("""
 - Navigate to **Price Prediction**
@@ -46,7 +53,7 @@ st.markdown("""
 - Use the tabs to view predicted prices and attributes for each house
 """)
 
-st.subheader("Custom Prediction")
+st.subheader("💸 Custom Prediction")
 st.markdown("""
 - Scroll to the **Custom Price Prediction** section
 - Fill in the form with details like size, year built, garage info, and quality ratings
@@ -75,7 +82,7 @@ with st.expander("Click to view input field descriptions"):
     """)
 
 # --- Troubleshooting ---
-st.header("⚠️ Troubleshooting")
+st.header("🛠️ Troubleshooting")
 st.markdown("""
 - **Missing Predictions?**: Make sure all required inputs are filled. Fields like year and square footage must be non-zero.
 - **Invalid Value Errors?**: Check for typos or invalid ranges (e.g., negative sqft).

@@ -22,7 +22,7 @@ except Exception as e:
     st.warning(f"Image load failed: {e}")
 
 # --- Title ---
-st.title("Heritage Housing Price Prediction")
+st.title("💸 Heritage Housing Price Prediction")
 st.markdown("""
 This page enables users to:
 - View price predictions for inherited houses
