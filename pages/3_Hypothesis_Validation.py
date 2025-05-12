@@ -76,7 +76,7 @@ st.write("""
 """)
 
 with st.expander("📊 R2 Scores Across Models"):
-    image_block("outputs/visuals/R2_score_comparison.png", "Model R2 Comparison")
+    image_block("outputs/visuals/r2_score_comparison.png", "Model R2 Comparison")
 
 with st.expander("📊 MAE Scores Across Models"):
     image_block("outputs/visuals/mae_score_comparison.png", "Model R2 Comparison")
