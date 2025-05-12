@@ -5,7 +5,7 @@
 Welcome to the **Heritage Housing Price Prediction** project! This tool is designed to support **local councils, planners, and conservation teams** in evaluating and forecasting the market value of **heritage-listed properties**, with a focus on fairness, transparency, and data-driven decision making.
 
 **View the Live Project:**
-View the live project [here]()
+View the live project [here](https://heritage-housing-pricing-d6cd43e01839.herokuapp.com/)
 
 ### Project Highlights
 
@@ -46,6 +46,7 @@ The datasets have a similar structure, with features that describe important pro
 
 <details:>
   <summary>Click to view the detailed feature descriptions:</summary>
+
 - **1stFlrSF**: First floor square footage.
 - **2ndFlrSF**: Second floor square footage.
 - **BedroomAbvGr**: Number of bedrooms above ground level.
@@ -75,7 +76,7 @@ Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedB
 
 ### Dataset Quality and Observations  
 
-As part of the project's initial data collecting phase, the datasets' quality was examined in the [Data collecting Notebook](). The following were the main findings at the time of data collection:
+As part of the project's initial data collecting phase, the datasets' quality was examined in the [Data collecting Notebook](https://github.com/EktaMehra/heritage_housing/blob/main/jupyter_notebooks/01_Data_Collection.ipynb). The following were the main findings at the time of data collection:
 
 - The raw `house_prices_records.csv` contained missing values in fields like `LotFrontage`, `GarageYrBlt`, and `MasVnrArea`.
 - The `inherited_houses.csv` was mostly clean and required only minimal processing.
@@ -277,45 +278,100 @@ The dashboard serves as the user-facing interface of the Heritage Housing projec
 
 The application is divided into the following pages:
 
+---
+
 1. **Main Page**  
-   - Instructs users to use the sidebar to navigate to all app features.  
-![Main Page](static/images/main_page.PNG)
+   - Instructs users to use the sidebar to access all dashboard features.
+   - Sets expectations for navigation and user experience.
+
+   **Key Content**:
+   - Welcome message and visual banner.
+   - Instructions to begin navigating from the sidebar.
+   - Static layout, no inputs.
+
+   ![Main Page](static/images/main_page.PNG)
 
 2. **Home**  
-   - Overview of the project and its goals.  
-   - Brief context on the client’s challenge and use case.  
-![Home Page](static/images/home_page.PNG)
+   - Introduces the Heritage Housing project and its objectives.
+   - Provides business context and the client’s challenge.
 
-3. **Feature Correlation**  
-   - Interactive heatmaps and scatter plots to explore attribute relationships.  
-   - Dropdown selectors for numeric and categorical feature comparison.  
-![Feature Correlation Page](static/images/feature_correlation_page.PNG)
+   **Key Content**:
+   - Summary of the problem and dataset.
+   - Description of the client's inherited properties.
+   - High-level model goal and benefits.
+   - Links to relevant sections of the app for deeper insights.
+
+   ![Home Page](static/images/home_page.PNG)
+
+3. **Feature Correlation**
+   - Allows users to explore how individual features relate to house prices.
+
+   **Key Content**:
+   - Interactive **heatmap** of feature correlations with `SalePrice`.
+   - **Scatter plot** tool to compare selected features against sale prices.
+   - Dropdown filters for numeric and categorical variables.
+   - Tooltips for interpreting correlation strength and direction.
+
+   ![Feature Correlation Page](static/images/feature_correlation_page.PNG)
 
 4. **Hypothesis Validation**  
-   - Visual evidence to support or refute project hypotheses.  
-   - Commentary on findings from correlation and modeling.  
-![Hypothesis Validation Page](static/images/hypothesis_page.PNG)
+   - Validates hypotheses around what influences house prices using visual analysis.
+
+   **Key Content**:
+   - Predefined hypotheses (e.g., OverallQual has strong positive correlation with price).
+   - Supporting visualizations for each hypothesis (scatter plots, boxplots, KDEs).
+   - Commentary explaining results and confirming or refuting each hypothesis.
+   - Static content with dynamic visual interpretation.
+
+   ![Hypothesis Validation Page](static/images/hypothesis_page.PNG)
 
 5. **Price Prediction**  
-   - Input form for custom property details.  
-   - Real-time sale price prediction output and table of inputs.  
-   - Display of inherited property predictions and total valuation.  
-![Price Prediction Page](static/images/pp_page.PNG)
+   - Offers real-time predictions for sale prices based on user-inputted property details.
+
+   **Key Content**:
+   - Input fields for key attributes (e.g., GrLivArea, OverallQual, GarageArea, Age).
+   - **Predict** button to trigger model inference.
+   - Display of predicted price with confidence indicators.
+   - Table of inputs and results.
+   - **Download** button for saving predictions.
+   - Display of results for the 4 inherited properties.
+
+   ![Price Prediction Page](static/images/pp_page.PNG)
 
 6. **Summary Page**  
-   - High-level recap of project insights and modeling outcomes.  
-   - Designed for quick stakeholder reference before reviewing detailed metrics.  
-![Summary Page](static/images/summary_page.PNG)
+   - Summarizes key project insights, business outcomes, and modeling results.
+
+   **Key Content**:
+   - High-level takeaways from EDA and modeling.
+   - Recap of business requirements and how they were met.
+   - Visual summary of model performance and inherited property predictions.
+   - Ideal for stakeholders who want conclusions without technical depth.
+
+   ![Summary Page](static/images/summary_page.PNG)
 
 7. **Technical Summary**  
-   - Overview of the data pipeline, model evaluation, and performance metrics.  
-   - Downloadable charts and summaries for transparency.  
-![Technical Summary Page](static/images/tech_summary_page.PNG)
+   - Presents detailed modeling pipeline, evaluation metrics, and artefact summaries.
+
+   **Key Content**:
+   - Overview of data cleaning, feature engineering, model training, and evaluation.
+   - Display of evaluation metrics (R², MAE, RMSE).
+   - Model comparison results (Random Forest, XGBoost, etc.).
+   - Downloadable performance visualizations (bar plots, residual charts).
+   - Expanders and radio buttons for pipeline visibility.
+
+   ![Technical Summary Page](static/images/tech_summary_page.PNG)
 
 8. **User Guide**  
-   - Step-by-step instructions on how to use the app.  
-   - Descriptions of each page and expected user inputs/outputs.  
-![User Guide Page](static/images/userguide_page.PNG)
+   - Instructions and explanations for using the app efficiently.
+
+   **Key Content**:
+   - What to expect from each page.
+   - Description of required inputs for prediction.
+   - Navigation tips.
+   - Explanation of tool outputs (what the heatmap or prediction means).
+   - Screenshots and user tips.
+
+   ![User Guide Page](static/images/userguide_page.PNG)
 
 ### Future Enhancements
 
@@ -324,6 +380,8 @@ The application is divided into the following pages:
 - Incorporate feature importance visualisations per prediction.
 
 ## Methodology
+
+---
 
 This project follows the **CRISP-DM** (Cross-Industry Standard Process for Data Mining) framework, ensuring a structured and repeatable approach to data science. It also incorporates Agile-inspired iteration and validation throughout the project lifecycle.
 
@@ -455,6 +513,8 @@ This section summarizes the key deliverables of the Heritage Housing project and
 
 ## Testing
 
+---
+
 Thorough testing was conducted to ensure the accuracy, reliability, and usability of both the machine learning model and the dashboard interface. Testing spanned data preprocessing, model performance, and front-end interactions.
 
 ### Unit Testing
@@ -506,6 +566,8 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 ## Deployment
 
+---
+
 The Heritage Housing dashboard was deployed using **Streamlit**, making the tool publicly accessible for stakeholders and users to interact with the model and visualizations in real time.
 
 ### Deployment Steps
@@ -541,6 +603,8 @@ The Heritage Housing dashboard was deployed using **Streamlit**, making the tool
 ---
 
 ## Technologies Used
+
+---
 
 A variety of tools and libraries were used to support data cleaning, exploratory analysis, model development, and dashboard deployment. The stack ensures robustness, interactivity, and maintainability.
 
@@ -586,6 +650,8 @@ A variety of tools and libraries were used to support data cleaning, exploratory
 
 ## Credits
 
+---
+
 ### Data Sources
 
 - **Kaggle - Ames Housing Dataset**: Provided by Code Institute as the core dataset for training and evaluation.
@@ -596,6 +662,10 @@ A variety of tools and libraries were used to support data cleaning, exploratory
 - **Code Institute**: Predictive Analytics course materials, mentor support, and assessment guidelines.
 - **Churnometer Walkthrough Project**: Used as a structural and methodological reference.
 
+### Visual and Media Assets
+
+- **Pexels**: All dashboard page images and banners used in the application were sourced from [https://www.pexels.com](https://www.pexels.com) under the free-to-use license and edited for project context.
+
 ### Tools and Packages
 
 - **Streamlit Documentation**: Referenced for dashboard configuration and component integration.
@@ -604,6 +674,8 @@ A variety of tools and libraries were used to support data cleaning, exploratory
 ---
 
 ## Acknowledgements
+
+---
 
 - **Code Institute**: For providing project templates, walkthroughs, and the assessment framework.
 - **My Mentor- Moritz**: For timely guidance during my entire journey of learning how to code.
