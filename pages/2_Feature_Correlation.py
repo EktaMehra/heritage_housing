@@ -68,7 +68,7 @@ try:
         features = st.multiselect(
             "Select features to compare:",
             options=df.columns.tolist(),
-            default=["LogSalePrice", "overallqual", "grlivarea"]
+            default=["LogSalePrice", "OverallQual", "GrLivArea"]
         )
         if len(features) > 1:
             fig = px.imshow(
