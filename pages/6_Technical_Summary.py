@@ -25,7 +25,7 @@ Explore the technical architecture, modelling pipeline, and performance benchmar
 """)
 
 # --- Pipeline Overview ---
-st.header("🔧 Pipeline Design")
+st.header("Pipeline Design")
 pipeline_section = st.radio("Select a pipeline to explore:", ["Data Cleaning", "Feature Engineering", "Model Training"])
 
 if pipeline_section == "Data Cleaning":
@@ -67,6 +67,10 @@ elif pipeline_section == "Model Training":
         - Random Forest selected for best test R2 and lowest MAE
     - **Final Pipeline**:
         - Combined the `preprocessor` and `RandomForestRegressor` using `Pipeline()`
+        - Preprocessing includes:
+            - `SimpleImputer` for numeric missing values
+            - `StandardScaler` for normalization
+            - One-hot encoding inside `ColumnTransformer`
         - Serialized as `final_random_forest_pipeline.pkl` for use in Streamlit
     - **Cross-Validation**:
         - 5-fold CV used to validate generalization and avoid overfitting
