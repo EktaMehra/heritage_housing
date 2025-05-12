@@ -4,6 +4,9 @@
 
 Welcome to the **Heritage Housing Price Prediction** project! This tool is designed to support **local councils, planners, and conservation teams** in evaluating and forecasting the market value of **heritage-listed properties**, with a focus on fairness, transparency, and data-driven decision making.
 
+**View the Live Project:**
+View the live project [here]()
+
 ### Project Highlights
 
 - **Predictive Model**: Accurately forecasts sale prices for both standard and heritage homes, including a test set of inherited properties.
@@ -11,6 +14,8 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
 - **User-Centric Dashboard**: Built using Streamlit for clear, actionable insights and real-time property valuation predictions.
 
 ## Dataset Content
+
+---
 
 ### Source
 
@@ -37,9 +42,40 @@ The project includes the following key datasets:
 
 ### Detailed Feature Descriptions  
 
-The datasets include attributes such as lot area, year built, overall quality, and living area size. Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedBsmtRatio** were added during preprocessing to enhance model performance.
+The datasets have a similar structure, with features that describe important property traits.  The features are broken down as follows:
+
+<details:>
+  <summary>Click to view the detailed feature descriptions:</summary>
+- **1stFlrSF**: First floor square footage.
+- **2ndFlrSF**: Second floor square footage.
+- **BedroomAbvGr**: Number of bedrooms above ground level.
+- **BsmtExposure**: Exposure level of the basement to the outside (e.g., walkout or garden-level).
+- **BsmtFinSF1**: Finished square footage of the primary basement area.
+- **BsmtFinType1**: Quality or type of basement finish.
+- **BsmtUnfSF**: Unfinished square footage of the basement.
+- **GarageArea**: Total area of the garage in square feet.
+- **GarageFinish**: Interior finish of the garage (e.g., unfinished, finished).
+- **GarageYrBlt**: Year the garage was built.
+- **GrLivArea**: Above-grade (ground level) living area in square feet.
+- **KitchenQual**: Kitchen quality rating.
+- **LotArea**: Lot size in square feet.
+- **LotFrontage**: Linear feet of street connected to the property.
+- **MasVnrArea**: Masonry veneer area in square feet.
+- **OpenPorchSF**: Open porch area in square feet.
+- **OverallCond**: Overall condition rating of the house (1 = Poor to 10 = Excellent).
+- **OverallQual**: Overall material and finish quality (1 = Poor to 10 = Excellent).
+- **TotalBsmtSF**: Total basement square footage.
+- **YearBuilt**: Year the house was originally constructed.
+- **YearRemodAdd**: Year of last remodel or addition.
+- **SalePrice**: Sale price of the property (target variable).
+
+</details>
+
+Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedBsmtRatio** were added during preprocessing to enhance model performance.
 
 ### Dataset Quality and Observations  
+
+As part of the project's initial data collecting phase, the datasets' quality was examined in the [Data collecting Notebook](). The following were the main findings at the time of data collection:
 
 - The raw `house_prices_records.csv` contained missing values in fields like `LotFrontage`, `GarageYrBlt`, and `MasVnrArea`.
 - The `inherited_houses.csv` was mostly clean and required only minimal processing.
@@ -52,6 +88,8 @@ The datasets include attributes such as lot area, year built, overall quality, a
 - Outliers were addressed but remain a consideration in model performance.
 
 ## Business Requirements
+
+---
 
 The client—representing a local planning authority—has inherited four **heritage-listed residential properties** and seeks support in evaluating their fair market value. Due to regulatory constraints and the unique nature of heritage properties, traditional valuation approaches may fall short. This project provides a **data-driven approach** to forecasting prices, identifying key value drivers, and ensuring consistent and transparent appraisals.
 
@@ -73,11 +111,15 @@ Heritage properties are unique due to architectural preservation, age, and locat
 ### Deliverables
 
 - **Correlational Insights**: Interactive visualizations of the most important features (e.g., `OverallQual`, `GrLivArea`, `GarageArea`) and their relationship with sale prices.
+  ![Impact of Overall Quality vs Sale Price Chart](outputs/visuals/key_driver_overallqual.png)
 - **Predictive Model**: A trained machine learning model capable of predicting property values with high accuracy.
+  ![Inherited Properties Predictions](outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png)
+  ![Test Dataset Predictions](outputs/visuals/predicted_vs_actual_rf_vs_gbr.png)
 - **Dashboard Interface**: A Streamlit dashboard where users can:
   - Explore correlations,
   - Predict property prices in real time,
   - Review technical details of the modeling process.
+  ![Dashboard Screenshot](static/images/dashboard_screenshot.PNG)
 
 ## Hypotheses and Validation Plan
 
@@ -184,6 +226,8 @@ Each business requirement has been directly translated into specific data visual
 
 ## ML Business Case
 
+---
+
 Machine learning plays a central role in this project by enabling accurate, automated, and scalable valuation of heritage properties. By capturing non-linear interactions between features and prices, ML models provide insights that go beyond traditional appraisal methods.
 
 ### Objectives of Machine Learning
@@ -213,6 +257,8 @@ Machine learning plays a central role in this project by enabling accurate, auto
 
 ## User Stories
 
+---
+
 User stories were created to define functional requirements and ensure the project stays aligned with the client’s real-world needs. These stories guided the design of the dashboard, the machine learning pipeline, and the visual outputs.
 
 The full list of user stories for this project can be found [here](https://github.com/users/EktaMehra/projects/5/views/1).
@@ -227,37 +273,49 @@ The dashboard serves as the user-facing interface of the Heritage Housing projec
 - **Usability**: Easy navigation across pages for correlational insights, hypothesis validation, predictions, and technical transparency.
 - **Responsiveness**: Designed to be compatible with desktop and tablet environments.
 
-### Dashboard Structure (Add All the images)
+### Dashboard Structure
 
 The application is divided into the following pages:
 
 1. **Main Page**  
-   - Instructs users to use the sidebar to navigate to all app features.
+   - Instructs users to use the sidebar to navigate to all app features.  
+![Main Page](static/images/main_page.PNG)
 
 2. **Home**  
    - Overview of the project and its goals.  
-   - Brief context on the client’s challenge and use case.
+   - Brief context on the client’s challenge and use case.  
+![Home Page](static/images/home_page.PNG)
 
 3. **Feature Correlation**  
    - Interactive heatmaps and scatter plots to explore attribute relationships.  
-   - Dropdown selectors for numeric and categorical feature comparison.
+   - Dropdown selectors for numeric and categorical feature comparison.  
+![Feature Correlation Page](static/images/feature_correlation_page.PNG)
 
 4. **Hypothesis Validation**  
    - Visual evidence to support or refute project hypotheses.  
-   - Commentary on findings from correlation and modeling.
+   - Commentary on findings from correlation and modeling.  
+![Hypothesis Validation Page](static/images/hypothesis_page.PNG)
 
 5. **Price Prediction**  
    - Input form for custom property details.  
    - Real-time sale price prediction output and table of inputs.  
-   - Display of inherited property predictions and total valuation.
+   - Display of inherited property predictions and total valuation.  
+![Price Prediction Page](static/images/pp_page.PNG)
 
-6. **Technical Summary**  
+6. **Summary Page**  
+   - High-level recap of project insights and modeling outcomes.  
+   - Designed for quick stakeholder reference before reviewing detailed metrics.  
+![Summary Page](static/images/summary_page.PNG)
+
+7. **Technical Summary**  
    - Overview of the data pipeline, model evaluation, and performance metrics.  
-   - Downloadable charts and summaries for transparency.
+   - Downloadable charts and summaries for transparency.  
+![Technical Summary Page](static/images/tech_summary_page.PNG)
 
-7. **User Guide**  
+8. **User Guide**  
    - Step-by-step instructions on how to use the app.  
-   - Descriptions of each page and expected user inputs/outputs.
+   - Descriptions of each page and expected user inputs/outputs.  
+![User Guide Page](static/images/userguide_page.PNG)
 
 ### Future Enhancements
 
