@@ -11,6 +11,12 @@ def predict_from_raw(raw_df, model_path, save_output_path=None):
         print("[INFO] Loading model pipeline...")
         model_pipeline = joblib.load(model_path)
 
+        # Optional: validate input columns before prediction
+        expected_features = model_pipeline.named_steps["preprocessor"].transformers_[0][2]
+        missing = [col for col in expected_features if col not in raw_df.columns]
+        if missing:
+            raise ValueError(f"[ERROR] Missing expected input features: {missing}")
+
         print("[INFO] Generating predictions...")
         predictions = model_pipeline.predict(raw_df)
 
