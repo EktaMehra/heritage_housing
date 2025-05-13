@@ -46,6 +46,7 @@ The datasets have a similar structure, with features that describe important pro
 
 <details>
   <summary>Click to view the detailed feature descriptions</summary>
+  
 
 - **1stFlrSF**: First floor square footage.
 - **2ndFlrSF**: Second floor square footage.
@@ -88,6 +89,8 @@ As part of the project's initial data collecting phase, the datasets' quality wa
 - The dataset is limited to a specific geographic context (e.g., Ames, Iowa), which may affect generalizability.
 - Outliers were addressed but remain a consideration in model performance.
 
+---
+
 ## Business Requirements
 
 ---
@@ -122,7 +125,11 @@ Heritage properties are unique due to architectural preservation, age, and locat
   - Review technical details of the modeling process.
   ![Dashboard Screenshot](static/images/dashboard_screenshot.PNG)
 
+---
+
 ## Hypotheses and Validation Plan
+
+---
 
 This project is grounded in data-driven hypotheses about what influences house prices, especially in the context of heritage properties. Each hypothesis has been validated through statistical analysis, visual inspection, and model performance evaluation.
 
@@ -168,7 +175,11 @@ This project is grounded in data-driven hypotheses about what influences house p
 - **Deliverable**:  
   - Provide individual predictions and an aggregated total value for the 4 properties.
 
+---
+
 ## Mapping Business Requirements to ML Tasks
+
+---
 
 Each business requirement has been directly translated into specific data visualizations, machine learning tasks, and dashboard functionalities. This ensures that all stakeholder goals are addressed in a measurable, transparent, and interactive manner.
 
@@ -225,6 +236,8 @@ Each business requirement has been directly translated into specific data visual
     - Tables
     - Downloadable prediction results
 
+---
+
 ## ML Business Case
 
 ---
@@ -256,6 +269,38 @@ Machine learning plays a central role in this project by enabling accurate, auto
 - **Evaluation Metrics for Confidence**:  
   Metrics like R², MAE, and RMSE are used to validate performance, making results explainable and trustworthy.
 
+---
+
+## 🐞 Known Bugs & Fixes
+
+During the development of the prediction pipeline, the following critical bug was encountered and resolved:
+
+---
+
+### ❌ Bug: Mismatch Between Model Input and Trained Feature Set
+
+**Error Message**:  
+`ValueError: X has 17 features, but RandomForestRegressor is expecting 30 features as input.`
+
+**Cause**:  
+This occurred because the trained model was expecting a **fully preprocessed input** (with all one-hot encoded and engineered features), but the prediction data had only **raw or partially processed features**.
+
+**Root Issue**:
+
+- The preprocessing steps used during training (encoding, feature engineering, imputation) were **not applied consistently** during prediction.
+- As a result, `X_test` or user input did not match the trained model’s expected schema.
+
+**Fix**:
+
+- Created a **single unified pipeline** using `sklearn.pipeline.Pipeline` that includes both preprocessing and the model.
+- Saved this full pipeline using `joblib`.
+- During inference, passed all data (including user input and inherited properties) through the **same pipeline**, ensuring identical feature structure.
+
+**Outcome**:  
+
+- The bug was eliminated, and predictions now align with the trained model’s structure.  
+- This reinforced the importance of using a **single, serialised pipeline** for consistency across training and deployment.
+
 ## User Stories
 
 ---
@@ -264,7 +309,11 @@ User stories were created to define functional requirements and ensure the proje
 
 The full list of user stories for this project can be found [here](https://github.com/users/EktaMehra/projects/5/views/1).
 
+---
+
 ## Dashboard Design
+
+---
 
 The dashboard serves as the user-facing interface of the Heritage Housing project. Built with **Streamlit**, it presents predictions and insights in a clear, interactive, and accessible format—suitable for both technical and non-technical users.
 
@@ -277,8 +326,6 @@ The dashboard serves as the user-facing interface of the Heritage Housing projec
 ### Dashboard Structure
 
 The application is divided into the following pages:
-
----
 
 1. **Main Page**  
    - Instructs users to use the sidebar to access all dashboard features.
