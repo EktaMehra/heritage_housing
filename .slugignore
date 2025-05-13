@@ -1,5 +1,4 @@
 data/raw/*
-outputs/visuals/*
 outputs/shap_values/*
 outputs/ft_importance/*
 notebooks/*
