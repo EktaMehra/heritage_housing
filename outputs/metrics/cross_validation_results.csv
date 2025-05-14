@@ -1,6 +1,6 @@
 Model,CV R2,CV MAE,CV RMSE
-Gradient Boosting,0.8749,0.0952,0.138
-Random Forest,0.8584,0.0999,0.1471
-Ridge Regression,0.8176,0.1038,0.1702
-SVR,0.7975,0.1172,0.1759
-Decision Tree,0.7187,0.1466,0.206
+Gradient Boosting,0.8742,0.0942,0.1386
+Ridge Regression,0.8685,0.0936,0.1427
+Random Forest,0.8565,0.1007,0.1482
+Decision Tree,0.7184,0.1464,0.2061
+SVR,0.69,0.1425,0.2181

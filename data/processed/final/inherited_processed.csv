@@ -1,5 +1,5 @@
-1stFlrSF,2ndFlrSF,BedroomAbvGr,BsmtFinSF1,BsmtUnfSF,GarageArea,GarageYrBlt,GrLivArea,LotArea,LotFrontage,MasVnrArea,OpenPorchSF,OverallCond,OverallQual,TotalBsmtSF,YearBuilt,YearRemodAdd,BsmtExposure_Gd,BsmtExposure_Mn,BsmtExposure_No,BsmtFinType1_BLQ,BsmtFinType1_GLQ,BsmtFinType1_LwQ,BsmtFinType1_Rec,BsmtFinType1_Unf,GarageFinish_RFn,GarageFinish_Unf,KitchenQual_Fa,KitchenQual_Gd,KitchenQual_TA
-896,0,2,0,270.0,730.0,1961.0,0,0,80.0,0.0,0,0,0,0,0,1961,0,0,0,0,False,0,True,0,0,True,0,0,True
-1329,0,3,0,406.0,312.0,1958.0,0,0,81.0,108.0,36,0,0,0,0,1958,0,0,0,0,False,0,False,0,0,True,0,0,False
-928,701,3,0,137.0,482.0,1997.0,0,0,74.0,0.0,34,0,0,0,0,1998,0,0,0,0,True,0,False,0,0,False,0,0,True
-926,678,3,0,324.0,470.0,1998.0,0,0,78.0,20.0,36,0,0,0,0,1998,0,0,0,0,True,0,False,0,0,False,0,0,False
+1stFlrSF,2ndFlrSF,BedroomAbvGr,BsmtFinSF1,BsmtUnfSF,GarageArea,GarageYrBlt,GrLivArea,LotArea,LotFrontage,MasVnrArea,OpenPorchSF,OverallCond,OverallQual,TotalBsmtSF,YearBuilt,YearRemodAdd,HouseAge,LivingLotRatio,FinishedBsmtRatio,OverallScore,HasPorch,BsmtExposure_Gd,BsmtExposure_Mn,BsmtExposure_No,BsmtFinType1_BLQ,BsmtFinType1_GLQ,BsmtFinType1_LwQ,BsmtFinType1_Rec,BsmtFinType1_Unf,GarageFinish_RFn,GarageFinish_Unf,KitchenQual_Fa,KitchenQual_Gd,KitchenQual_TA
+896,0,2,0,270.0,730.0,1961.0,0,0,80.0,0.0,0,0,0,0,0,1961,64,0.07708853136023402,0.5300113250283126,30,0,0,0,0,0,False,0,True,0,0,True,0,0,True
+1329,0,3,0,406.0,312.0,1958.0,0,0,81.0,108.0,36,0,0,0,0,1958,67,0.09314550042052144,0.693984962406015,36,0,0,0,0,0,False,0,False,0,0,True,0,0,False
+928,701,3,0,137.0,482.0,1997.0,0,0,74.0,0.0,34,0,0,0,0,1998,28,0.1177789024654761,0.8514531754574811,25,0,0,0,0,0,True,0,False,0,0,False,0,0,True
+926,678,3,0,324.0,470.0,1998.0,0,0,78.0,20.0,36,0,0,0,0,1998,27,0.16073754885259045,0.6494066882416397,36,0,0,0,0,0,True,0,False,0,0,False,0,0,False
