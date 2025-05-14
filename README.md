@@ -4,8 +4,7 @@
 
 Welcome to the **Heritage Housing Price Prediction** project! This tool is designed to support **local councils, planners, and conservation teams** in evaluating and forecasting the market value of **heritage-listed properties**, with a focus on fairness, transparency, and data-driven decision making.
 
-**View the Live Project:**
-[Here](https://heritage-housing-pricing-d6cd43e01839.herokuapp.com/)
+🔗 **Live Demo**: [heritage-housing-pricing.herokuapp.com](https://heritage-housing-pricing-d6cd43e01839.herokuapp.com/)
 
 ### Project Highlights
 
@@ -46,7 +45,6 @@ The datasets have a similar structure, with features that describe important pro
 
 <details>
   <summary>Click to view the detailed feature descriptions</summary>
-  
 
 - **1stFlrSF**: First floor square footage.
 - **2ndFlrSF**: Second floor square footage.
@@ -77,7 +75,7 @@ Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedB
 
 ### Dataset Quality and Observations  
 
-As part of the project's initial data collecting phase, the datasets' quality was examined in the [Data collecting Notebook](https://github.com/EktaMehra/heritage_housing/blob/main/jupyter_notebooks/01_Data_Collection.ipynb). The following were the main findings at the time of data collection:
+As part of the project's initial data collecting phase, the datasets' quality was examined in the [Data collection Notebook](https://github.com/EktaMehra/heritage_housing/blob/main/jupyter_notebooks/01_Data_Collection.ipynb). The following were the main findings at the time of data collection:
 
 - The raw `house_prices_records.csv` contained missing values in fields like `LotFrontage`, `GarageYrBlt`, and `MasVnrArea`.
 - The `inherited_houses.csv` was mostly clean and required only minimal processing.
@@ -271,13 +269,13 @@ Machine learning plays a central role in this project by enabling accurate, auto
 
 ---
 
-## 🐞 Known Bugs & Fixes
+## Known Bugs & Fixes
 
 During the development of the prediction pipeline, the following critical bug was encountered and resolved:
 
 ---
 
-### ❌ Bug: Mismatch Between Model Input and Trained Feature Set
+### Bug: Mismatch Between Model Input and Trained Feature Set
 
 **Error Message**:  
 `ValueError: X has 17 features, but RandomForestRegressor is expecting 30 features as input.`
@@ -531,7 +529,7 @@ This section summarizes the key deliverables of the Heritage Housing project and
 
 - **Prediction Interface**  
   - Real-time model deployed via Streamlit for sale price predictions.
-  - Inherited property valuation with summary output.
+  - Inherited property predictions with individual and total valuations.
 
 - **Interactive Dashboard**  
   - Feature correlation exploration
