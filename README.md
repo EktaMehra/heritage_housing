@@ -18,7 +18,7 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
 
 ### Source
 
-The datasets used in this project were provided as part of the Code Institute's Predictive Analytics module. They consist of real-world housing records and client-specific inherited properties.
+The datasets used in this project are available on Kaggle and were provided as part of the Code Institute's Predictive Analytics module. They consist of real-world housing records and client-specific inherited properties.
 
 ### Licensing
 

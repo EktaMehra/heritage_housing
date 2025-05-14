@@ -126,10 +126,17 @@ try:
     # --- INSIGHTS ---
     st.header("💡 Key Insights")
     st.markdown("""
-- `OverallQual` and `GrLivArea` show the **strongest positive correlation** with `LogSalePrice`.
-- `GarageArea`, `1stFlrSF`, and `LotArea` also contribute positively.
-- Weaker correlations may add noise or multicollinearity.
-- Use this analysis to focus model training on high-impact variables.
+    - **Overall Quality (`OverallQual`)** is the most influential feature in predicting sale price. Properties rated higher in construction and materials consistently fetched higher prices, making this the strongest driver of value.
+  
+    - **Above Ground Living Area (`GrLivArea`)** also shows a strong positive correlation with price. Larger usable living spaces are highly valued and are reflected in higher sale prices.
+
+    - **Garage Area (`GarageArea`)**, **First Floor Area (`1stFlrSF`)**, and **Lot Area (`LotArea`)** contribute positively as well. These features offer additional utility or land value and support a higher price tag.
+
+    - Features with **weaker or near-zero correlation** may introduce noise and multicollinearity if not properly handled. These include variables with low variability or those not directly affecting property valuation.
+
+    - These findings were used during feature selection and engineering stages to **prioritize high-impact variables**, eliminate redundant ones, and improve model efficiency.
+
+    - The correlation insights reinforce earlier business hypotheses and helped drive both the feature engineering strategy and final model architecture.
     """)
 
 except FileNotFoundError:

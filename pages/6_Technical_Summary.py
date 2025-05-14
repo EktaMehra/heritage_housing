@@ -49,7 +49,7 @@ elif pipeline_section == "Feature Engineering":
     """)
     st.markdown("""
     - **Created Features**:
-        - `Age`, `OverallScore`, `LivingLotRatio`, `FinishedBsmtRatio`, `HasPorch`
+        - `HouseAge`, `OverallScore`, `LivingLotRatio`, `FinishedBsmtRatio`, `HasPorch`
     - **Transformations**:
         - Log-transform applied to right-skewed numerical features
         - Reflected features (`YearBuilt`, `YearRemodAdd`) for better directionality
