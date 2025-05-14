@@ -62,7 +62,7 @@ try:
             </div>
             """, unsafe_allow_html=True)
 
-    st.subheader("🧾 Total Predicted Sale Value of Inherited Properties")
+    st.subheader("📜 Total Predicted Sale Value of Inherited Properties")
     st.markdown("""
     This figure represents the **combined predicted market value** of all inherited heritage properties listed above.  
     The total is calculated by summing the **individual predicted sale prices** for each property.
@@ -83,7 +83,6 @@ with st.expander("ℹ️ How to use this form"):
     Make sure all fields are filled accurately — units are shown next to each input.
     """)
 
-# --- Input Form ---
 with st.form("prediction_form"):
     col1, col2, col3, col4 = st.columns(4)
     now = datetime.datetime.now().year
@@ -120,8 +119,8 @@ with st.form("prediction_form"):
 
     submitted = st.form_submit_button("🔍 Predict Price")
 
-# --- Prediction Logic ---
 if submitted:
+    # Step 1: Collect inputs into a raw DataFrame
     raw_input = pd.DataFrame([{
         "1stFlrSF": FirstFlrSF,
         "2ndFlrSF": SecondFlrSF,
@@ -147,6 +146,20 @@ if submitted:
     }])
 
     try:
+        # Step 2: Apply Feature Engineering
+        raw_input["HouseAge"] = 2025 - raw_input["YearBuilt"]
+        raw_input["LivingLotRatio"] = raw_input["GrLivArea"] / (raw_input["LotArea"] + 1)
+        raw_input["FinishedBsmtRatio"] = raw_input["BsmtFinSF1"] / (raw_input["TotalBsmtSF"] + 1)
+        raw_input["OverallScore"] = raw_input["OverallQual"] * raw_input["OverallCond"]
+        raw_input["HasPorch"] = np.where(raw_input["OpenPorchSF"] > 0, "Has Porch", "No Porch")
+
+        # Step 3: Drop columns that were removed during training
+        raw_input.drop(columns=[
+            "YearBuilt", "GrLivArea", "LotArea", "BsmtFinSF1",
+            "TotalBsmtSF", "OverallQual", "OverallCond"
+        ], inplace=True)
+
+        # Step 4: Load pipeline and make prediction
         pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
         log_prediction = pipeline.predict(raw_input)[0]
         predicted_price = np.expm1(log_prediction)
