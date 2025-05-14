@@ -120,7 +120,7 @@ with st.form("prediction_form"):
     submitted = st.form_submit_button("🔍 Predict Price")
 
 if submitted:
-    # Step 1: Collect inputs into a raw DataFrame
+    # --- Raw Inputs ---
     raw_input = pd.DataFrame([{
         "1stFlrSF": FirstFlrSF,
         "2ndFlrSF": SecondFlrSF,
@@ -145,32 +145,45 @@ if submitted:
         "YearRemodAdd": YearRemodAdd
     }])
 
+    # --- Manual Feature Engineering ---
+    raw_input["HouseAge"] = 2025 - raw_input["YearBuilt"]
+    raw_input["LivingLotRatio"] = raw_input["GrLivArea"] / (raw_input["LotArea"] + 1)
+    raw_input["FinishedBsmtRatio"] = raw_input["BsmtFinSF1"] / (raw_input["TotalBsmtSF"] + 1)
+    raw_input["OverallScore"] = raw_input["OverallQual"] * raw_input["OverallCond"]
+    raw_input["HasPorch"] = np.where(raw_input["OpenPorchSF"] > 0, "Has Porch", "No Porch")
+
+    # Drop original columns that were removed during training
+    raw_input.drop(columns=[
+        "YearBuilt", "GrLivArea", "LotArea", "BsmtFinSF1",
+        "TotalBsmtSF", "OverallQual", "OverallCond"
+    ], inplace=True)
+
+    # --- Manual One-Hot Encoding (match training) ---
+    categorical_cols = ["BsmtExposure", "BsmtFinType1", "GarageFinish", "KitchenQual", "HasPorch"]
+    raw_input_encoded = pd.get_dummies(raw_input, columns=categorical_cols, drop_first=True)
+
+    # --- Align to training features ---
+    expected_cols = pd.read_csv("data/processed/final/X_train.csv").columns.tolist()
+    for col in expected_cols:
+        if col not in raw_input_encoded.columns:
+            raw_input_encoded[col] = 0
+    raw_input_encoded = raw_input_encoded[expected_cols]
+
+    # --- Load pipeline and predict ---
     try:
-        # Step 2: Apply Feature Engineering
-        raw_input["HouseAge"] = 2025 - raw_input["YearBuilt"]
-        raw_input["LivingLotRatio"] = raw_input["GrLivArea"] / (raw_input["LotArea"] + 1)
-        raw_input["FinishedBsmtRatio"] = raw_input["BsmtFinSF1"] / (raw_input["TotalBsmtSF"] + 1)
-        raw_input["OverallScore"] = raw_input["OverallQual"] * raw_input["OverallCond"]
-        raw_input["HasPorch"] = np.where(raw_input["OpenPorchSF"] > 0, "Has Porch", "No Porch")
-
-        # Step 3: Drop columns that were removed during training
-        raw_input.drop(columns=[
-            "YearBuilt", "GrLivArea", "LotArea", "BsmtFinSF1",
-            "TotalBsmtSF", "OverallQual", "OverallCond"
-        ], inplace=True)
-
-        # Step 4: Load pipeline and make prediction
         pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
-        log_prediction = pipeline.predict(raw_input)[0]
+        log_prediction = pipeline.predict(raw_input_encoded)[0]
         predicted_price = np.expm1(log_prediction)
 
         st.success(f"💰 Predicted Sale Price: **£{predicted_price:,.2f}**")
 
-        raw_input["Predicted SalePrice"] = predicted_price
-        st.markdown("### Prediction Summary")
-        st.dataframe(raw_input)
+        display_df = raw_input.copy()
+        display_df["Predicted SalePrice"] = predicted_price
 
-        csv = raw_input.to_csv(index=False).encode("utf-8")
+        st.markdown("### Prediction Summary")
+        st.dataframe(display_df)
+
+        csv = display_df.to_csv(index=False).encode("utf-8")
         st.download_button(
             label="📥 Download Prediction Data",
             data=csv,
