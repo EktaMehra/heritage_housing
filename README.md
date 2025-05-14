@@ -43,9 +43,6 @@ The project includes the following key datasets:
 
 The datasets have a similar structure, with features that describe important property traits.  The features are broken down as follows:
 
-<details>
-  <summary>Click to view the detailed feature descriptions</summary>
-
 - **1stFlrSF**: First floor square footage.
 - **2ndFlrSF**: Second floor square footage.
 - **BedroomAbvGr**: Number of bedrooms above ground level.
@@ -68,8 +65,6 @@ The datasets have a similar structure, with features that describe important pro
 - **YearBuilt**: Year the house was originally constructed.
 - **YearRemodAdd**: Year of last remodel or addition.
 - **SalePrice**: Sale price of the property (target variable).
-
-</details>
 
 Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedBsmtRatio** were added during preprocessing to enhance model performance.
 
