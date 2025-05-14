@@ -40,7 +40,7 @@ if pipeline_section == "Data Cleaning":
         - Removed using IQR and 99th percentile caps  
         - Outliers in `LotArea`, `GrLivArea` and `SalePrice` were carefully reviewed
     - **Consistency**:
-        - Standardized formats, renamed columns, ensured no duplicate records
+        - Standardized formats & ensured no duplicate records
     """)
 
 elif pipeline_section == "Feature Engineering":
