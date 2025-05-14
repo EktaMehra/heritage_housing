@@ -66,7 +66,7 @@ The datasets have a similar structure, with features that describe important pro
 - **YearRemodAdd**: Year of last remodel or addition.
 - **SalePrice**: Sale price of the property (target variable).
 
-Additional engineered features like **Age**, **LivingLotRatio**, and **FinishedBsmtRatio** were added during preprocessing to enhance model performance.
+Additional engineered features like **HouseAge**, **LivingLotRatio**, and **FinishedBsmtRatio** were added during preprocessing to enhance model performance.
 
 ### Dataset Quality and Observations  
 
@@ -132,7 +132,7 @@ This project is grounded in data-driven hypotheses about what influences house p
 
 - Features such as **Overall Quality (OverallQual)**, **Above Ground Living Area (GrLivArea)**, and **Garage Area (GarageArea)** are expected to show **strong positive correlations** with sale prices.
 - Attributes like **Year Built**, **Basement Finish Type**, and **Lot Area** are hypothesized to show **moderate influence** on sale prices.
-- New engineered features like **Age**, **LivingLotRatio**, and **FinishedBsmtRatio** may add significant predictive power.
+- New engineered features like **HouseAge**, **LivingLotRatio**, and **FinishedBsmtRatio** may add significant predictive power.
 
 #### Predictive Model
 
@@ -243,7 +243,7 @@ Machine learning plays a central role in this project by enabling accurate, auto
   Train a regression model capable of predicting fair market prices for both standard and heritage properties, using historical sale data and engineered features.
 
 - **Feature Impact Analysis**:  
-  Identify which property characteristics (e.g., `OverallQual`, `Age`, `GarageArea`) have the strongest influence on sale prices.
+  Identify which property characteristics (e.g., `OverallQual`, `HouseAge`, `GarageArea`) have the strongest influence on sale prices.
 
 - **Real-Time Usability**:  
   Integrate ML predictions into a dashboard interface where users can enter property details and receive instant valuation output.
@@ -369,7 +369,7 @@ The application is divided into the following pages:
    - Offers real-time predictions for sale prices based on user-inputted property details.
 
    **Key Content**:
-   - Input fields for key attributes (e.g., GrLivArea, OverallQual, GarageArea, Age).
+   - Input fields for key attributes (e.g., GrLivArea, OverallQual, GarageArea, HouseAge).
    - **Predict** button to trigger model inference.
    - Display of predicted price with confidence indicators.
    - Table of inputs and results.
@@ -456,7 +456,7 @@ Help local authorities and property owners estimate fair market prices for herit
 - Imputed missing values using domain-informed techniques.
 - Dropped low-importance or high-null columns.
 - Removed duplicates and standardized data types.
-- Created new features: `Age`, `LivingLotRatio`, `FinishedBsmtRatio`.
+- Created new features: `HouseAge`, `LivingLotRatio`, `FinishedBsmtRatio`.
 
 **Output**:
 
