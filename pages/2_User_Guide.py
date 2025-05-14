@@ -37,11 +37,12 @@ st.header("App Navigation")
 st.markdown("""
 Use the sidebar to navigate between different sections:
 - 🏠 **Home** — overview and dashboard
+- 📚 **Summary** - An overall summary of the project with Business Requirements & dataset overview
+- 📘 **User Guide** — you're here!
 - 📈 **Feature Correlation** — heatmaps and feature importance
 - ✅ **Hypothesis Validation** — test assumptions with visual proofs
 - 💸 **Price Prediction** — get instant predictions for inherited or custom properties
 - 📚 **Technical Summary** — pipeline structure, model performance, and drivers
-- 📘 **User Guide** — you're here!
 """)
 
 # --- Predict Price Section ---
