@@ -320,18 +320,7 @@ The dashboard serves as the user-facing interface of the Heritage Housing projec
 
 The application is divided into the following pages:
 
-1. **Main Page**  
-   - Instructs users to use the sidebar to access all dashboard features.
-   - Sets expectations for navigation and user experience.
-
-   **Key Content**:
-   - Welcome message and visual banner.
-   - Instructions to begin navigating from the sidebar.
-   - Static layout, no inputs.
-
-   ![Main Page](static/images/main_page.PNG)
-
-2. **Home**  
+1. **Home**  
    - Introduces the Heritage Housing project and its objectives.
    - Provides business context and the client’s challenge.
 
@@ -343,7 +332,30 @@ The application is divided into the following pages:
 
    ![Home Page](static/images/home_page.PNG)
 
-3. **Feature Correlation**
+2. **Summary Page**  
+   - Summarizes key project insights, business outcomes, and modeling results.
+
+   **Key Content**:
+   - High-level takeaways from EDA and modeling.
+   - Recap of business requirements and how they were met.
+   - Visual summary of model performance and inherited property predictions.
+   - Ideal for stakeholders who want conclusions without technical depth.
+
+   ![Summary Page](static/images/summary_page.PNG)
+
+3. **User Guide**  
+   - Instructions and explanations for using the app efficiently.
+
+   **Key Content**:
+   - What to expect from each page.
+   - Description of required inputs for prediction.
+   - Navigation tips.
+   - Explanation of tool outputs (what the heatmap or prediction means).
+   - Screenshots and user tips.
+
+   ![User Guide Page](static/images/userguide_page.PNG)
+
+4. **Feature Correlation**
    - Allows users to explore how individual features relate to house prices.
 
    **Key Content**:
@@ -354,7 +366,7 @@ The application is divided into the following pages:
 
    ![Feature Correlation Page](static/images/feature_correlation_page.PNG)
 
-4. **Hypothesis Validation**  
+5. **Hypothesis Validation**  
    - Validates hypotheses around what influences house prices using visual analysis.
 
    **Key Content**:
@@ -365,7 +377,7 @@ The application is divided into the following pages:
 
    ![Hypothesis Validation Page](static/images/hypothesis_page.PNG)
 
-5. **Price Prediction**  
+6. **Price Prediction**  
    - Offers real-time predictions for sale prices based on user-inputted property details.
 
    **Key Content**:
@@ -378,17 +390,6 @@ The application is divided into the following pages:
 
    ![Price Prediction Page](static/images/pp_page.PNG)
 
-6. **Summary Page**  
-   - Summarizes key project insights, business outcomes, and modeling results.
-
-   **Key Content**:
-   - High-level takeaways from EDA and modeling.
-   - Recap of business requirements and how they were met.
-   - Visual summary of model performance and inherited property predictions.
-   - Ideal for stakeholders who want conclusions without technical depth.
-
-   ![Summary Page](static/images/summary_page.PNG)
-
 7. **Technical Summary**  
    - Presents detailed modeling pipeline, evaluation metrics, and artefact summaries.
 
@@ -400,18 +401,6 @@ The application is divided into the following pages:
    - Expanders and radio buttons for pipeline visibility.
 
    ![Technical Summary Page](static/images/tech_summary_page.PNG)
-
-8. **User Guide**  
-   - Instructions and explanations for using the app efficiently.
-
-   **Key Content**:
-   - What to expect from each page.
-   - Description of required inputs for prediction.
-   - Navigation tips.
-   - Explanation of tool outputs (what the heatmap or prediction means).
-   - Screenshots and user tips.
-
-   ![User Guide Page](static/images/userguide_page.PNG)
 
 ### Future Enhancements
 
