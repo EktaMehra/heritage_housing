@@ -84,6 +84,12 @@ st.markdown("""
 Model performance was evaluated using R2, MAE, and MSE across both training and testing datasets.
 Random Forest consistently outperformed other models in both accuracy and reliability.
 """)
+st.markdown("""
+**Model Scores Summary**:
+- **Random Forest**: R² = 0.87, MAE ≈ £13,000, RMSE ≈ £21,000  
+- **XGBoost**: R² = 0.85, MAE ≈ £14,500  
+- **Gradient Boosting**: Slightly underperformed compared to RF/XGB  
+""")
 
 with st.expander("📊 R2 Comparison"):
     st.image(

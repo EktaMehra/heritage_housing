@@ -198,6 +198,13 @@ if submitted:
 
         st.success(f"💰 Predicted Sale Price: **£{predicted_price:,.2f}**")
 
+        st.markdown("""
+        📌 **Interpretation**:
+        - This prediction is based on historical Ames market data and assumes similar economic conditions.
+        - The model is trained to generalize well but actual sale prices may vary due to external factors (e.g. renovations, market shifts).
+        - Confidence is higher for inputs that closely match the training data (e.g. typical sizes, quality ratings).
+        """)
+
         display_df = raw_input.copy()
         display_df["Predicted SalePrice"] = predicted_price
 

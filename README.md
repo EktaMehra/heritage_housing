@@ -361,7 +361,7 @@ The application is divided into the following pages:
    **Key Content**:
    - Interactive **heatmap** of feature correlations with `SalePrice`.
    - **Scatter plot** tool to compare selected features against sale prices.
-   - Dropdown filters for numeric and categorical variables.
+   - Dropdown filters for numeric variables.
    - Tooltips for interpreting correlation strength and direction.
 
    ![Feature Correlation Page](static/images/feature_correlation_page.PNG)
@@ -371,9 +371,9 @@ The application is divided into the following pages:
 
    **Key Content**:
    - Predefined hypotheses (e.g., OverallQual has strong positive correlation with price).
-   - Supporting visualizations for each hypothesis (scatter plots, boxplots, KDEs).
+   - Supporting visualizations for each hypothesis.
    - Commentary explaining results and confirming or refuting each hypothesis.
-   - Static content with dynamic visual interpretation.
+   - Static content with visual interpretation.
 
    ![Hypothesis Validation Page](static/images/hypothesis_page.PNG)
 

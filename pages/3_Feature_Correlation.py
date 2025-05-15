@@ -101,7 +101,10 @@ try:
     st.plotly_chart(fig)
 
     # --- SCATTER MATRIX / PAIR PLOT ---
-    st.subheader("🔗 Feature Pair Relationships")
+    st.subheader("🔗 Feature Pair Relationships (Scatter Plot)")
+    st.markdown("""
+    Compare how top features vary together and with `LogSalePrice`. Use this to spot trends, outliers, or interaction effects.
+    """)
     pairplot_features = st.multiselect(
         "Select features for pairwise scatter matrix:",
         options=top_corr.index.tolist(),
@@ -120,6 +123,15 @@ try:
         st.plotly_chart(fig)
     else:
         st.info("Select at least one feature to show pairwise relationships.")
+
+    st.markdown("""
+    📌 **Interpretation Tips**:
+    - A **positive correlation** means both features increase together (e.g., `OverallQual` ↑ → `SalePrice` ↑).
+    - A **negative correlation** means one goes down as the other goes up.
+    - Values closer to **+1 or -1** show stronger relationships.
+    - For modeling, features highly correlated with `LogSalePrice` are valuable predictors.
+    """)
+
 
     # --- INSIGHTS ---
     st.header("💡 Key Insights")

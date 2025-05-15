@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-# --- Header Image ---
+# --- HEADER IMAGE ---
 image_path = "static/images/summary_header.jpg"
 output_path = "static/images/summary_header_converted.png"
 
@@ -14,50 +14,45 @@ try:
 except Exception as e:
     st.warning(f"Could not load header image: {e}")
 
-# --- Page Title ---
+# --- PAGE TITLE ---
 st.title("📌 Heritage Housing Project Summary")
 st.markdown("""
-Welcome to the summary page of the **Heritage Housing Price Prediction App**.
-This project applies predictive analytics to support the valuation of inherited residential properties in Ames, Iowa.
+This summary page gives a high-level overview of the key findings, business outcomes, and modeling results  
+delivered through the Heritage Housing Price Prediction App.
 ---
 """)
 
-# --- Overview of the App ---
-st.header("📋 Dashboard Navigation")
+# --- BUSINESS GOALS ---
+st.header("📈 Business Objectives")
 st.write("""
-This app contains the following sections:
-- **Home** – Project overview and navigation
-- **Feature Correlation** – Explore how property features correlate with sale prices
-- **Hypothesis Validation** – Validate business and modelling assumptions
-- **Price Prediction** – View predictions for inherited properties and run custom ones
-- **Technical Summary** – Dive into model performance and pipeline structure
+- Predict market-aligned prices for 4 inherited heritage homes  
+- Identify the most influential features impacting sale price  
+- Provide stakeholders with an interpretable, data-driven dashboard
 """)
 
-# --- Business Goals ---
-st.header("📈 Project Goals & Business Requirements")
-st.write("""
-This project was developed to meet the following business needs:
-- **Price Estimation**: Deliver accurate price predictions for 4 inherited houses in Ames.
-- **Feature Insight**: Identify key drivers that impact sale price.
-- **Decision Support**: Empower the client with a usable tool for evaluating future properties.
+# --- EDA & MODELING TAKEAWAYS ---
+st.header("📊 Key Findings from EDA & Modeling")
+st.markdown("""
+- **Overall Quality**, **GrLivArea**, and **GarageArea** show strong positive correlation with price  
+- New features like **HouseAge**, **FinishedBsmtRatio**, and **LivingLotRatio** added meaningful predictive power  
+- Random Forest model selected after comparing Linear Regression, XGBoost, and Gradient Boosting  
+- Achieved **R² = 0.87** on test data — demonstrating strong generalization
 """)
 
-# --- Dataset Summary ---
-st.header("📦 Dataset Overview")
-st.write("""
-The dataset used in this project originates from [Kaggle’s Ames Housing dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data).
-It contains detailed information on housing attributes and final sale prices.
+# --- VISUALS ---
+st.header("🖼️ Model Performance & Inherited Property Predictions")
 
-After preprocessing, the final dataset includes:
-- Removal of outliers and missing values
-- Creation of new features (e.g. `HouseAge`, `LivingLotRatio`)
-- Transformation of skewed variables and log-transformation of `SalePrice`
-""")
+try:
+    st.image("outputs/visuals/predicted_vs_actual_rf_vs_gbr.png", caption="Model Accuracy on Test Data")
+    st.image("outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png", caption="Predicted vs Expected: Inherited Properties")
+except Exception as e:
+    st.warning(f"Could not load performance visuals: {e}")
 
-# Display Processed Dataset Info
+# --- DATA SNAPSHOT ---
+st.header("📦 Processed Dataset Summary")
+
 try:
     df = pd.read_csv("data/processed/final/X_test.csv")
-    st.subheader("📊 Processed Data Snapshot")
     st.write(f"Rows: **{df.shape[0]}**, Columns: **{df.shape[1]}**")
     st.dataframe(df.head())
 
@@ -66,12 +61,18 @@ try:
         "Data Type": df.dtypes.astype(str)
     }))
 except FileNotFoundError:
-    st.error("Processed dataset not found at expected location.")
+    st.error("Processed dataset not found.")
 except Exception as e:
     st.error(f"Error loading dataset: {e}")
 
-# --- More Info / README ---
-st.header("🛠 Additional Information")
-st.write("""
-To learn more about the methodology, modelling choices, and deployment steps, refer to the full project documentation in the `README.md` file on GitHub.
+# --- CONCLUSION ---
+st.header("📍 Summary Takeaways")
+
+st.markdown("""
+This project delivers a practical, data-driven solution for valuing heritage homes.
+The app combines statistical insights, predictive modeling, and interactive dashboards to support planning and inheritance decisions with confidence.
 """)
+
+# --- LINK TO DOCS ---
+st.markdown("---")
+st.info("🔍 For more technical details, visit the Technical Summary or see the README.md on GitHub.")

@@ -31,17 +31,32 @@ Start with **Price Prediction** to test real or custom properties.
 """)
 
 
-# --- Navigation ---
-st.header("App Navigation")
+# --- Navigation Help ---
+st.header("🔍 What to Expect From Each Page")
+
 st.markdown("""
-Use the sidebar to navigate between different sections:
-- 🏠 **Home** — overview and dashboard
-- 📚 **Summary** - An overall summary of the project with Business Requirements & dataset overview
-- 📘 **User Guide** — you're here!
-- 📈 **Feature Correlation** — heatmaps and feature importance
-- ✅ **Hypothesis Validation** — test assumptions with visual proofs
-- 💸 **Price Prediction** — get instant predictions for inherited or custom properties
-- 📚 **Technical Summary** — pipeline structure, model performance, and drivers
+Here’s a quick overview of what each section offers:
+
+- 🏠 **Home**  
+  Introduction to the project, client scenario, and navigation guide.
+
+- 📚 **Summary**  
+  Business context, key results, and takeaways — ideal for stakeholders.
+
+- 📘 **User Guide**  
+  You're here! Get help using the app and understanding key inputs.
+
+- 📈 **Feature Correlation**  
+  Explore how different attributes (e.g., quality, area, garage) relate to price using interactive heatmaps and scatter plots.
+
+- ✅ **Hypothesis Validation**  
+  Visual evidence for or against common assumptions (e.g., "bigger garage = higher price").
+
+- 💸 **Price Prediction**  
+  Predict sale prices for 4 inherited homes or run custom estimates.
+
+- 📚 **Technical Summary**  
+  Dive into how the model was trained, evaluated, and deployed — for technical reviewers.
 """)
 
 # --- Predict Price Section ---
@@ -61,6 +76,13 @@ st.markdown("""
 - The predicted sale price will appear below the form
 - Optionally download the result as a CSV
 """)
+st.markdown("""
+**What the Output Means**:
+- The predicted price reflects the model's best estimate based on similar historical homes.
+- Predictions are shown in GBP (£) and assume market conditions similar to those in Ames, Iowa.
+- A downloadable CSV lets you retain results for reports or further use.
+""")
+
 
 # --- Inputs Explained ---
 st.header("📥 Input Definitions")

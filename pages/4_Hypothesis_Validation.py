@@ -78,6 +78,14 @@ with st.expander("📊 GarageArea vs LogSalePrice"):
         "outputs/visuals/scatter_garagearea_vs_LogSalePrice.png",
         "Garage Area vs Log Sale Price")
 
+st.markdown("""
+📌 **Interpretation**:
+- As expected, `OverallQual`, `GrLivArea`, and `GarageArea` show strong positive correlation with `LogSalePrice`.
+- Scatter plots confirm linear relationships, particularly for `GrLivArea`.
+- These features were retained in modeling and shown to drive predictive performance.
+✅ **Hypothesis Confirmed**.
+""")
+
 st.markdown("---")
 
 # --- HYPOTHESIS 2 ---
@@ -108,6 +116,14 @@ with st.expander("📊 Predicted vs Actual Sale Prices"):
         "outputs/visuals/predicted_vs_actual_rf_vs_gbr.png",
         "Predicted vs Actual on Test Data")
 
+st.markdown("""
+📌 **Interpretation**:
+- Random Forest consistently outperformed other models across R², MAE, and RMSE.
+- Final R² score on the test set was **0.87**, meeting the business target of 0.75.
+- Predicted vs actual plot shows tight clustering along the diagonal, indicating good generalization.
+✅ **Hypothesis Confirmed**.
+""")
+
 st.markdown("---")
 
 # --- HYPOTHESIS 3 ---
@@ -133,6 +149,14 @@ with st.expander("📊 Residuals for XGBoost Model"):
     image_block(
         "outputs/visuals/residual_distribution_xgb_inherited.png",
         "Residuals - XGBoost")
+
+st.markdown("""
+📌 **Interpretation**:
+- Inherited property predictions fall within realistic Ames market ranges.
+- Residual distributions are centered around zero for both models, with no major bias.
+- This confirms the model can be trusted to estimate prices for unseen, heritage-specific cases.
+✅ **Hypothesis Confirmed**.
+""")
 
 st.markdown("---")
 
