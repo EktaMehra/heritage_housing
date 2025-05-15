@@ -300,7 +300,7 @@ This occurred because the trained model was expecting a **fully preprocessed inp
 
 User stories were created to define functional requirements and ensure the project stays aligned with the client’s real-world needs. These stories guided the design of the dashboard, the machine learning pipeline, and the visual outputs.
 
-The full list of user stories for this project can be found [here](https://github.com/users/EktaMehra/projects/5/views/1).
+🔗 [The full list of user stories for this project can be found here](https://github.com/users/EktaMehra/projects/5/views/1).
 
 ---
 
@@ -595,39 +595,44 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 ## Deployment
 
----
+The Heritage Housing dashboard was deployed using **Heroku**, making the tool publicly accessible for stakeholders to interact with the trained model and explore predictions and insights.
 
-The Heritage Housing dashboard was deployed using **Streamlit**, making the tool publicly accessible for stakeholders and users to interact with the model and visualizations in real time.
+---
 
 ### Deployment Steps
 
 1. **Prepare Final Pipeline**  
-   - Serialized the trained Random Forest model, fitted scaler, and feature pipeline using `joblib`.
-   - Saved necessary outputs (e.g., prediction-ready dataset, evaluation metrics) to `/outputs/`.
+   - Serialized the trained Random Forest model, fitted scaler, and preprocessing pipeline using `joblib`.
+   - Saved output artefacts (prediction-ready datasets, evaluation metrics) in the `outputs/` directory.
 
 2. **Streamlit App Structure**  
-   - Created modular Python scripts for each dashboard page (Home, Prediction, Feature Correlation, etc.).
-   - Integrated all backend logic and visuals within a clean sidebar navigation UI.
+   - Developed modular dashboard pages in Python using **Streamlit**.
+   - Configured sidebar navigation with clearly separated functional pages.
+   - All artefacts loaded on startup to ensure a responsive experience.
 
 3. **Set up Hosting Environment**  
-   - Used **Streamlit Community Cloud** for hosting the app.
-   - Defined `requirements.txt` to specify necessary libraries.
-   - Set a lightweight `.slugignore` to exclude large files (e.g., raw CSVs and intermediate figures) not needed at runtime.
+   - Used **Heroku Cloud** for app hosting and deployment.
+   - Added a `Procfile` and specified the runtime in `runtime.txt`.
+   - Defined dependencies in `requirements.txt`.
+   - Configured `.slugignore` to exclude large files (e.g., raw datasets and local figures) not needed in production.
 
 4. **Connect to GitHub**  
-   - Linked the GitHub repo to Streamlit Cloud for continuous deployment.
-   - Updates pushed to main are automatically reflected in the live app.
+   - Linked the GitHub repository to **Heroku** for continuous deployment.
+   - Enabled auto-deploy from the `main` branch.
+   - New commits pushed to GitHub automatically trigger redeployment.
+
+---
 
 ### Deployment Considerations
 
 - **Slug Size**:  
-  `.slugignore` was configured to avoid unnecessary files and keep the app within platform limits.
-  
+  Managed with `.slugignore` to avoid Heroku slug size limits by excluding unnecessary data files.
+
 - **Reproducibility**:  
-  All model artefacts are versioned in the `/outputs/models/` and `/outputs/pipelines/` directories.
+  Model artefacts and pipeline objects versioned and stored in `outputs/models/` and `outputs/pipelines/`.
 
 - **Performance**:  
-  Dashboard optimized for responsiveness; pre-computed artefacts are loaded rather than recalculated on each session.
+  Preloaded data and precomputed outputs to optimize dashboard responsiveness and minimize load time.
 
 ---
 
