@@ -8,7 +8,7 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
 
 ### Project Highlights
 
-- **Predictive Model**: Accurately forecasts sale prices for both standard and heritage homes, including a test set of inherited properties.
+- **Predictive Model**: Predictive Model: Achieved an R2 score of 0.87 on unseen test data using a Random Forest Regressor. Forecasts sale prices for both standard and heritage homes, including a test set of inherited properties.
 - **Interactive Visualizations**: Explore relationships between structural and historical property features and sale prices.
 - **User-Centric Dashboard**: Built using Streamlit for clear, actionable insights and real-time property valuation predictions.
 
@@ -718,3 +718,11 @@ A variety of tools and libraries were used to support data cleaning, exploratory
 - **ChatGPT**: Used for technical explanations and debugging during the project.
 
 > Thank you to everyone who contributed directly or indirectly to the successful completion of this project.
+
+## Project Impact
+
+---
+
+This project successfully bridges the gap between historical property valuation and modern data science. By integrating machine learning into a user-friendly interface, it empowers local authorities and property stakeholders to make fair, transparent, and data-backed decisions. The Heritage Housing App demonstrates how predictive analytics can add tangible value in sensitive domains like real estate and inheritance management.
+
+---

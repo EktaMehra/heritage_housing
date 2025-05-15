@@ -16,19 +16,19 @@ except Exception as e:
 # Title and intro
 st.title("🏡 Heritage Housing Price Prediction App")
 st.markdown("""
-Welcome to the Heritage Housing Price Prediction Tool. 
+Welcome to the Heritage Housing Price Prediction Tool.
 This application is designed to help local councils, urban planners, and conservation officers estimate the fair market value of heritage-listed residential properties.
 
-            
+
 Business Goals:
-            
+
 Enable accurate and transparent price forecasting to support:
 - Fair inheritance distribution
 - Urban development planning
 - Property taxation and renovation funding decisions
 
 Our machine learning model is trained on historical property data and engineered features tailored to the heritage housing market.
-            
+
 This app supports:
 - 📊 Feature correlation analysis
 - 🔬 Hypothesis validation

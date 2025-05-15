@@ -3,7 +3,8 @@ from PIL import Image
 import os
 
 # --- PAGE SETUP ---
-st.set_page_config(page_title="Hypothesis Validation", layout="wide")
+# st.set_page_config(page_title="Hypothesis Validation", layout="wide") #
+# Suggested by Streamlit to be only added once in Home.py
 
 # --- HEADER IMAGE ---
 image_path = "static/images/hypothesis_header.jpg"
@@ -29,13 +30,13 @@ This section documents the business hypotheses explored in the project, the meth
 # --- HYPOTHESES LIST ---
 st.header("Project Hypotheses")
 st.write("""
-1. **Feature Impact Hypothesis**  
+1. **Feature Impact Hypothesis**
    - Attributes such as `OverallQual`, `GrLivArea`, and `GarageArea` are positively correlated with house sale prices.
 
-2. **Model Performance Hypothesis**  
+2. **Model Performance Hypothesis**
    - A regression model trained on the dataset can achieve **R2 ≥ 0.75** on unseen test data.
 
-3. **Inherited Properties Hypothesis**  
+3. **Inherited Properties Hypothesis**
    - The model can predict sale prices for inherited properties aligned with market trends.
 """)
 st.markdown("---")
@@ -48,22 +49,34 @@ st.write("""
 - Visual validation using scatter plots for top features
 """)
 
+
 def image_block(filepath, caption):
     if os.path.exists(filepath):
         st.image(filepath, caption=caption, use_container_width=True)
         with open(filepath, "rb") as file:
-            st.download_button("📥 Download", data=file, file_name=os.path.basename(filepath), mime="image/png")
+            st.download_button(
+                "📥 Download",
+                data=file,
+                file_name=os.path.basename(filepath),
+                mime="image/png")
     else:
         st.warning(f"Missing: {filepath}")
 
+
 with st.expander("📊 Pearson Correlation Heatmap"):
-    image_block("outputs/visuals/pearson_correlation_heatmap.png", "Pearson Correlation Heatmap")
+    image_block(
+        "outputs/visuals/pearson_correlation_heatmap.png",
+        "Pearson Correlation Heatmap")
 
 with st.expander("📊 GrLivArea vs LogSalePrice"):
-    image_block("outputs/visuals/scatter_grlivarea_vs_LogSalePrice.png", "Living Area vs Log Sale Price")
+    image_block(
+        "outputs/visuals/scatter_grlivarea_vs_LogSalePrice.png",
+        "Living Area vs Log Sale Price")
 
 with st.expander("📊 GarageArea vs LogSalePrice"):
-    image_block("outputs/visuals/scatter_garagearea_vs_LogSalePrice.png", "Garage Area vs Log Sale Price")
+    image_block(
+        "outputs/visuals/scatter_garagearea_vs_LogSalePrice.png",
+        "Garage Area vs Log Sale Price")
 
 st.markdown("---")
 
@@ -76,16 +89,24 @@ st.write("""
 """)
 
 with st.expander("📊 R2 Scores Across Models"):
-    image_block("outputs/visuals/r2_score_comparison.png", "Model R2 Comparison")
+    image_block(
+        "outputs/visuals/r2_score_comparison.png",
+        "Model R2 Comparison")
 
 with st.expander("📊 MAE Scores Across Models"):
-    image_block("outputs/visuals/mae_score_comparison.png", "Model R2 Comparison")
+    image_block(
+        "outputs/visuals/mae_score_comparison.png",
+        "Model R2 Comparison")
 
 with st.expander("📊 RMSE Scores Across Models"):
-    image_block("outputs/visuals/rmse_score_comparison.png", "Model R2 Comparison")
+    image_block(
+        "outputs/visuals/rmse_score_comparison.png",
+        "Model R2 Comparison")
 
 with st.expander("📊 Predicted vs Actual Sale Prices"):
-    image_block("outputs/visuals/predicted_vs_actual_rf_vs_gbr.png", "Predicted vs Actual on Test Data")
+    image_block(
+        "outputs/visuals/predicted_vs_actual_rf_vs_gbr.png",
+        "Predicted vs Actual on Test Data")
 
 st.markdown("---")
 
@@ -99,13 +120,19 @@ st.write("""
 """)
 
 with st.expander("📊 Predicted vs Actual for Inherited (Log Sale Price)"):
-    image_block("outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png", "Predicted vs Actual (Log Scale)")
+    image_block(
+        "outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png",
+        "Predicted vs Actual (Log Scale)")
 
 with st.expander("📊 Residuals for Random Forest Model"):
-    image_block("outputs/visuals/residual_distribution_rf_inherited.png", "Residuals - Random Forest")
+    image_block(
+        "outputs/visuals/residual_distribution_rf_inherited.png",
+        "Residuals - Random Forest")
 
 with st.expander("📊 Residuals for XGBoost Model"):
-    image_block("outputs/visuals/residual_distribution_xgb_inherited.png", "Residuals - XGBoost")
+    image_block(
+        "outputs/visuals/residual_distribution_xgb_inherited.png",
+        "Residuals - XGBoost")
 
 st.markdown("---")
 

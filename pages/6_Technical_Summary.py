@@ -2,8 +2,6 @@ import streamlit as st
 from PIL import Image
 import os
 
-st.set_page_config(page_title="Technical Summary", layout="wide")
-
 # --- Header Image ---
 image_path = "static/images/tech_summary_header.jpg"
 output_path = "static/images/tech_summary_header_converted.png"
@@ -26,7 +24,9 @@ Explore the technical architecture, modelling pipeline, and performance benchmar
 
 # --- Pipeline Overview ---
 st.header("Pipeline Design")
-pipeline_section = st.radio("Select a pipeline to explore:", ["Data Cleaning", "Feature Engineering", "Model Training"])
+pipeline_section = st.radio(
+    "Select a pipeline to explore:", [
+        "Data Cleaning", "Feature Engineering", "Model Training"])
 
 if pipeline_section == "Data Cleaning":
     st.info("""
@@ -35,9 +35,9 @@ if pipeline_section == "Data Cleaning":
     st.markdown("""
     - **Missing Values**:
         - Numeric features imputed with `median` (e.g. `LotFrontage`, `GarageYrBlt`)
-        - Categorical features filled with `"None"` or `"Unknown"` depending on domain logic  
+        - Categorical features filled with `"None"` or `"Unknown"` depending on domain logic
     - **Outliers**:
-        - Removed using IQR and 99th percentile caps  
+        - Removed using IQR and 99th percentile caps
         - Outliers in `LotArea`, `GrLivArea` and `SalePrice` were carefully reviewed
     - **Consistency**:
         - Standardized formats & ensured no duplicate records
@@ -81,24 +81,42 @@ st.markdown("---")
 st.header("Model Performance")
 
 st.markdown("""
-Model performance was evaluated using R2, MAE, and MSE across both training and testing datasets.  
+Model performance was evaluated using R2, MAE, and MSE across both training and testing datasets.
 Random Forest consistently outperformed other models in both accuracy and reliability.
 """)
 
 with st.expander("📊 R2 Comparison"):
-    st.image("outputs/visuals/r2_score_comparison.png", caption="R2 Score Comparison")
+    st.image(
+        "outputs/visuals/r2_score_comparison.png",
+        caption="R2 Score Comparison")
     with open("outputs/visuals/r2_score_comparison.png", "rb") as file:
-        st.download_button("📥 Download", file, "r2_score_comparison.png", "image/png")
+        st.download_button(
+            "📥 Download",
+            file,
+            "r2_score_comparison.png",
+            "image/png")
 
 with st.expander("📊 Mean Absolute Error (MAE)"):
-    st.image("outputs/visuals/mae_score_comparison.png", caption="MAE Comparison")
+    st.image(
+        "outputs/visuals/mae_score_comparison.png",
+        caption="MAE Comparison")
     with open("outputs/visuals/mae_score_comparison.png", "rb") as file:
-        st.download_button("📥 Download", file, "mae_comparison.png", "image/png")
+        st.download_button(
+            "📥 Download",
+            file,
+            "mae_comparison.png",
+            "image/png")
 
 with st.expander("📊 Mean Squared Error (MSE)"):
-    st.image("outputs/visuals/rmse_score_comparison.png", caption="MSE Comparison")
+    st.image(
+        "outputs/visuals/rmse_score_comparison.png",
+        caption="MSE Comparison")
     with open("outputs/visuals/rmse_score_comparison.png", "rb") as file:
-        st.download_button("📥 Download", file, "mse_comparison.png", "image/png")
+        st.download_button(
+            "📥 Download",
+            file,
+            "mse_comparison.png",
+            "image/png")
 
 # --- Feature Importance ---
 st.markdown("---")
@@ -109,9 +127,14 @@ The chart below shows the top 10 most important features as learned by the final
 These variables had the greatest influence on sale price prediction.
 """)
 with st.expander("📊 Top 15 Drivers"):
-    st.image("outputs/visuals/rf_feature_importance_top15.png", caption="Top 15 Features by Importance")
+    st.image("outputs/visuals/rf_feature_importance_top15.png",
+             caption="Top 15 Features by Importance")
     with open("outputs/visuals/rf_feature_importance_top15.png", "rb") as file:
-        st.download_button("📥 Download", file, "top_10_features_random_forest.png", "image/png")
+        st.download_button(
+            "📥 Download",
+            file,
+            "top_10_features_random_forest.png",
+            "image/png")
 
 # --- Challenges & Improvements ---
 st.markdown("---")

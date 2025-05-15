@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-st.set_page_config(page_title="Project Summary", layout="wide")
-
 # --- Header Image ---
 image_path = "static/images/summary_header.jpg"
 output_path = "static/images/summary_header_converted.png"
@@ -19,7 +17,7 @@ except Exception as e:
 # --- Page Title ---
 st.title("📌 Heritage Housing Project Summary")
 st.markdown("""
-Welcome to the summary page of the **Heritage Housing Price Prediction App**.  
+Welcome to the summary page of the **Heritage Housing Price Prediction App**.
 This project applies predictive analytics to support the valuation of inherited residential properties in Ames, Iowa.
 ---
 """)
@@ -47,7 +45,7 @@ This project was developed to meet the following business needs:
 # --- Dataset Summary ---
 st.header("📦 Dataset Overview")
 st.write("""
-The dataset used in this project originates from [Kaggle’s Ames Housing dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data).  
+The dataset used in this project originates from [Kaggle’s Ames Housing dataset](https://www.kaggle.com/datasets/codeinstitute/housing-prices-data).
 It contains detailed information on housing attributes and final sale prices.
 
 After preprocessing, the final dataset includes:

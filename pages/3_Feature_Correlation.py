@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import plotly.express as px
 from PIL import Image
 import os
@@ -10,9 +8,6 @@ import numpy as np
 
 # Ensure parent dir is in path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-# --- PAGE CONFIG ---
-st.set_page_config(page_title="Feature Correlation", layout="wide")
 
 # --- HEADER IMAGE ---
 image_path = "static/images/ft_corr_header.jpg"
@@ -51,7 +46,9 @@ try:
 
     # --- HEATMAP TOGGLE ---
     st.header("Feature Correlation Heatmap")
-    heatmap_type = st.radio("Select heatmap type:", ["Standard Heatmap", "Custom Heatmap"])
+    heatmap_type = st.radio(
+        "Select heatmap type:", [
+            "Standard Heatmap", "Custom Heatmap"])
 
     if heatmap_type == "Standard Heatmap":
         fig = px.imshow(
@@ -87,7 +84,8 @@ try:
     st.subheader("📊 Top Features Correlated with LogSalePrice")
     top_n = st.slider("Number of features to display:", 5, 30, 10)
 
-    top_corr = corr_matrix["LogSalePrice"].drop("LogSalePrice").sort_values(key=abs, ascending=False).head(top_n)
+    top_corr = corr_matrix["LogSalePrice"].drop(
+        "LogSalePrice").sort_values(key=abs, ascending=False).head(top_n)
 
     fig = px.bar(
         x=top_corr.values,
@@ -127,7 +125,7 @@ try:
     st.header("💡 Key Insights")
     st.markdown("""
     - **Overall Quality (`OverallQual`)** is the most influential feature in predicting sale price. Properties rated higher in construction and materials consistently fetched higher prices, making this the strongest driver of value.
-  
+
     - **Above Ground Living Area (`GrLivArea`)** also shows a strong positive correlation with price. Larger usable living spaces are highly valued and are reflected in higher sale prices.
 
     - **Garage Area (`GarageArea`)**, **First Floor Area (`1stFlrSF`)**, and **Lot Area (`LotArea`)** contribute positively as well. These features offer additional utility or land value and support a higher price tag.

@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import os
 
 st.set_page_config(page_title="User Guide", layout="wide")
 
@@ -20,14 +19,14 @@ except Exception as e:
 # --- Title ---
 st.title("📘 User Guide")
 st.markdown("""
-This page provides instructions on how to use the Heritage Housing Price Prediction App effectively.  
+This page provides instructions on how to use the Heritage Housing Price Prediction App effectively.
 It is intended for clients, stakeholders, and property analysts who wish to evaluate house prices using machine learning.
 ---
 """)
 
 st.info("""
-**Quick Start**  
-Use the sidebar to access prediction tools, visual insights, and model documentation.  
+**Quick Start**
+Use the sidebar to access prediction tools, visual insights, and model documentation.
 Start with **Price Prediction** to test real or custom properties.
 """)
 
@@ -68,18 +67,18 @@ st.header("📥 Input Definitions")
 
 with st.expander("Click to view input field descriptions"):
     st.markdown("""
-    - **LotFrontage**: Street-connected frontage in feet  
-    - **LotArea**: Total lot size (sqft)  
-    - **1stFlrSF / 2ndFlrSF**: Finished square footage on each floor  
-    - **TotalBsmtSF**: Total basement area  
-    - **BsmtFinSF1 / BsmtUnfSF**: Finished and unfinished basement areas  
-    - **GarageArea / GarageYrBlt**: Garage size and construction year  
-    - **OpenPorchSF**: Size of open porch area  
-    - **YearBuilt / YearRemodAdd**: Year of construction and remodel  
-    - **OverallQual / OverallCond**: Overall quality and condition (rated 1–10)  
-    - **KitchenQual**: Kitchen quality (`Ex`, `Gd`, `TA`, `Fa`, `Po`)  
-    - **BsmtExposure**: Basement exposure to sunlight (`Gd`, `Av`, `Mn`, `No`)  
-    - **GarageFinish**: Interior finish of garage (`Fin`, `RFn`, `Unf`)  
+    - **LotFrontage**: Street-connected frontage in feet
+    - **LotArea**: Total lot size (sqft)
+    - **1stFlrSF / 2ndFlrSF**: Finished square footage on each floor
+    - **TotalBsmtSF**: Total basement area
+    - **BsmtFinSF1 / BsmtUnfSF**: Finished and unfinished basement areas
+    - **GarageArea / GarageYrBlt**: Garage size and construction year
+    - **OpenPorchSF**: Size of open porch area
+    - **YearBuilt / YearRemodAdd**: Year of construction and remodel
+    - **OverallQual / OverallCond**: Overall quality and condition (rated 1–10)
+    - **KitchenQual**: Kitchen quality (`Ex`, `Gd`, `TA`, `Fa`, `Po`)
+    - **BsmtExposure**: Basement exposure to sunlight (`Gd`, `Av`, `Mn`, `No`)
+    - **GarageFinish**: Interior finish of garage (`Fin`, `RFn`, `Unf`)
     """)
 
 # --- Troubleshooting ---
@@ -95,8 +94,8 @@ If errors persist, check the technical summary or contact the project maintainer
 # --- Download / Support ---
 st.header("📎 Export & Support")
 st.markdown("""
-- Use the **Download** buttons on most pages to export visuals and predictions  
-- For deployment or integration support, refer to the `README.md` and technical documentation  
+- Use the **Download** buttons on most pages to export visuals and predictions
+- For deployment or integration support, refer to the `README.md` and technical documentation
 """)
 
 # --- Final Note ---

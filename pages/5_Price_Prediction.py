@@ -6,7 +6,6 @@ from PIL import Image
 import datetime
 import os
 
-st.set_page_config(page_title="Price Prediction", layout="wide")
 
 # --- Header Image ---
 image_path = "static/images/pp_header.jpg"
@@ -34,9 +33,10 @@ This page enables users to:
 st.header("Predicted Prices for Inherited Houses")
 
 try:
-    df_inherited = pd.read_csv("data/processed/final/inherited_properties_display_ready.csv")
+    df_inherited = pd.read_csv(
+        "data/processed/final/inherited_properties_display_ready.csv")
 
-    tabs = st.tabs([f"Property {i+1}" for i in range(len(df_inherited))])
+    tabs = st.tabs([f"Property {i + 1}" for i in range(len(df_inherited))])
 
     for i, tab in enumerate(tabs):
         with tab:
@@ -56,15 +56,15 @@ try:
                     {"".join([
                         f"<div style='width: 33%;'>" + "".join([
                             f"<p><b>{k}:</b> {int(v) if isinstance(v, float) and v.is_integer() else v}</p>"
-                        for k, v in group]) + "</div>" for group in [one, two, three]
-                    ])}
+                            for k, v in group]) + "</div>" for group in [one, two, three]
+                        ])}
                 </div>
             </div>
             """, unsafe_allow_html=True)
 
     st.subheader("📜 Total Predicted Sale Value of Inherited Properties")
     st.markdown("""
-    This figure represents the **combined predicted market value** of all inherited heritage properties listed above.  
+    This figure represents the **combined predicted market value** of all inherited heritage properties listed above.
     The total is calculated by summing the **individual predicted sale prices** for each property.
     """)
     st.success(f"**£{df_inherited['Predicted_SalePrice'].sum():,.2f}**")
@@ -79,7 +79,7 @@ st.header("Custom Price Prediction")
 
 with st.expander("ℹ️ How to use this form"):
     st.markdown("""
-    Enter property details below to estimate the potential sale price.  
+    Enter property details below to estimate the potential sale price.
     Make sure all fields are filled accurately — units are shown next to each input.
     """)
 
@@ -89,7 +89,8 @@ with st.form("prediction_form"):
 
     with col1:
         LotFrontage = st.number_input("Lot Frontage (ft)", 0.0, 200.0, 60.0)
-        MasVnrArea = st.number_input("Masonry Veneer Area (sqft)", 0.0, 1500.0, 150.0)
+        MasVnrArea = st.number_input(
+            "Masonry Veneer Area (sqft)", 0.0, 1500.0, 150.0)
         YearBuilt = st.number_input("Year Built", 1800, now, 1970)
         BedroomAbvGr = st.number_input("Bedrooms Above Ground", 0, 10, 3)
         GarageArea = st.number_input("Garage Area (sqft)", 0, 1500, 400)
@@ -97,22 +98,30 @@ with st.form("prediction_form"):
     with col2:
         LotArea = st.number_input("Lot Area (sqft)", 1000, 30000, 8500)
         BsmtFinSF1 = st.number_input("Finished Basement (sqft)", 0, 2000, 700)
-        GrLivArea = st.number_input("Above Ground Living Area (sqft)", 500, 4000, 1500)
+        GrLivArea = st.number_input(
+            "Above Ground Living Area (sqft)", 500, 4000, 1500)
         SecondFlrSF = st.number_input("Second Floor Area (sqft)", 0, 2000, 500)
         GarageYrBlt = st.number_input("Garage Year Built", 1800, now, 1975)
 
     with col3:
         OpenPorchSF = st.number_input("Open Porch Area (sqft)", 0, 500, 40)
-        TotalBsmtSF = st.number_input("Total Basement Area (sqft)", 0, 3000, 1000)
+        TotalBsmtSF = st.number_input(
+            "Total Basement Area (sqft)", 0, 3000, 1000)
         YearRemodAdd = st.number_input("Year Remodeled", 1800, now, 2000)
         BsmtUnfSF = st.number_input("Unfinished Basement (sqft)", 0, 2000, 300)
         FirstFlrSF = st.number_input("1st Floor Area (sqft)", 500, 2500, 1200)
 
     with col4:
-        BsmtExposure = st.selectbox("Basement Exposure", ["Gd", "Av", "Mn", "No"])
-        BsmtFinType1 = st.selectbox("Finished Basement Type", ["GLQ", "ALQ", "BLQ", "Rec", "LwQ", "Unf"])
+        BsmtExposure = st.selectbox(
+            "Basement Exposure", [
+                "Gd", "Av", "Mn", "No"])
+        BsmtFinType1 = st.selectbox(
+            "Finished Basement Type", [
+                "GLQ", "ALQ", "BLQ", "Rec", "LwQ", "Unf"])
         GarageFinish = st.selectbox("Garage Finish", ["Fin", "RFn", "Unf"])
-        KitchenQual = st.selectbox("Kitchen Quality", ["Ex", "Gd", "TA", "Fa", "Po"])
+        KitchenQual = st.selectbox(
+            "Kitchen Quality", [
+                "Ex", "Gd", "TA", "Fa", "Po"])
 
     OverallQual = st.slider("Overall Quality (1–10)", 1, 10, 5)
     OverallCond = st.slider("Overall Condition (1–10)", 1, 10, 5)
@@ -147,10 +156,14 @@ if submitted:
 
     # --- Manual Feature Engineering ---
     raw_input["HouseAge"] = 2025 - raw_input["YearBuilt"]
-    raw_input["LivingLotRatio"] = raw_input["GrLivArea"] / (raw_input["LotArea"] + 1)
-    raw_input["FinishedBsmtRatio"] = raw_input["BsmtFinSF1"] / (raw_input["TotalBsmtSF"] + 1)
-    raw_input["OverallScore"] = raw_input["OverallQual"] * raw_input["OverallCond"]
-    raw_input["HasPorch"] = np.where(raw_input["OpenPorchSF"] > 0, "Has Porch", "No Porch")
+    raw_input["LivingLotRatio"] = raw_input["GrLivArea"] / \
+        (raw_input["LotArea"] + 1)
+    raw_input["FinishedBsmtRatio"] = raw_input["BsmtFinSF1"] / \
+        (raw_input["TotalBsmtSF"] + 1)
+    raw_input["OverallScore"] = raw_input["OverallQual"] * \
+        raw_input["OverallCond"]
+    raw_input["HasPorch"] = np.where(
+        raw_input["OpenPorchSF"] > 0, "Has Porch", "No Porch")
 
     # Drop original columns that were removed during training
     raw_input.drop(columns=[
@@ -159,11 +172,18 @@ if submitted:
     ], inplace=True)
 
     # --- Manual One-Hot Encoding (match training) ---
-    categorical_cols = ["BsmtExposure", "BsmtFinType1", "GarageFinish", "KitchenQual", "HasPorch"]
-    raw_input_encoded = pd.get_dummies(raw_input, columns=categorical_cols, drop_first=True)
+    categorical_cols = [
+        "BsmtExposure",
+        "BsmtFinType1",
+        "GarageFinish",
+        "KitchenQual",
+        "HasPorch"]
+    raw_input_encoded = pd.get_dummies(
+        raw_input, columns=categorical_cols, drop_first=True)
 
     # --- Align to training features ---
-    expected_cols = pd.read_csv("data/processed/final/X_train.csv").columns.tolist()
+    expected_cols = pd.read_csv(
+        "data/processed/final/X_train.csv").columns.tolist()
     for col in expected_cols:
         if col not in raw_input_encoded.columns:
             raw_input_encoded[col] = 0
@@ -171,7 +191,8 @@ if submitted:
 
     # --- Load pipeline and predict ---
     try:
-        pipeline = joblib.load("outputs/models/final_random_forest_pipeline.pkl")
+        pipeline = joblib.load(
+            "outputs/models/final_random_forest_pipeline.pkl")
         log_prediction = pipeline.predict(raw_input_encoded)[0]
         predicted_price = np.expm1(log_prediction)
 
