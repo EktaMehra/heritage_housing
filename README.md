@@ -262,6 +262,20 @@ Machine learning plays a central role in this project by enabling accurate, auto
 - **Evaluation Metrics for Confidence**:  
   Metrics like R², MAE, and RMSE are used to validate performance, making results explainable and trustworthy.
 
+### Final Model Selection and Outcome
+
+After training and evaluating multiple models, **Gradient Boosting Regressor** was selected for final deployment. It achieved:
+
+- **R² = 0.8774**
+- **MAE ≈ £13,000**
+- **RMSE ≈ £21,000**
+
+These metrics met and exceeded the project's business requirement of achieving **R² ≥ 0.75**, confirming that the model can reliably estimate sale prices of heritage and standard properties. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
+
+✅ **Business objective met:** The ML solution delivers accuracy, interpretability, and practical usability in line with the needs of housing stakeholders and estate planners.
+
+_Note: MAE and RMSE values are approximated from log-transformed predictions and scaled based on typical price ranges._
+
 ---
 
 ## Known Bugs & Fixes
