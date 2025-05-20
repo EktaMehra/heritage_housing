@@ -742,6 +742,20 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 > No known bugs or broken features were observed at the time of submission.
 
+### Code Validation
+
+To ensure clean, readable, and PEP8-compliant code, all .py files and Jupyter notebooks were validated using the Code Institute’s online PEP8 linter tool:
+[PEP8](https://pep8ci.herokuapp.com/)
+
+**Manual Validation Process:**
+
+- Each script and notebook was copied into the CI linter
+- Errors and warnings were reviewed line by line
+- Necessary formatting changes were made (e.g., line length, indentation, spacing, unused imports)
+
+Result:
+✅ All project files pass PEP8 validation with no critical warnings or errors remaining
+
 ## Deployment
 
 The Heritage Housing dashboard was deployed using **Heroku**, making the tool publicly accessible for stakeholders to interact with the trained model and explore predictions and insights.
