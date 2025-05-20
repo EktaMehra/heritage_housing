@@ -22,8 +22,8 @@ This app helps local councils, urban planners, and conservation officers estimat
 
 ### 🧭 Project Objective
 Develop a robust machine learning model and interactive dashboard that:
-- Predicts property prices with high accuracy
-- Supports fair inheritance and planning decisions
+- Predicts property prices with high accuracy  
+- Supports fair inheritance and planning decisions  
 - Offers explainable insights into key valuation drivers
 """)
 
@@ -36,14 +36,30 @@ The client owns **4 heritage-listed properties** in Ames and wants to assess the
 These properties lack sale prices and are evaluated using our trained prediction model.
 
 📁 Input data includes:
-- Lot and building dimensions
-- Basement, garage, and porch features
-- Construction year, renovations, and quality ratings
+- Lot and building dimensions  
+- Basement, garage, and porch features  
+- Construction year, renovations, and quality ratings  
 
 🧮 The model provides:
-- Individual price predictions
-- A combined total valuation
+- Individual price predictions  
+- A combined total valuation  
 - Real-time forecasting via custom inputs
+""")
+
+st.markdown("---")
+
+# --- Business Requirements ---
+st.header("📌 Business Requirements")
+st.markdown("""
+**Requirement 1: Correlation Analysis**  
+- Investigate and visualize which features most strongly correlate with house sale price  
+- Use methods like Pearson or PPS to identify price drivers  
+- Summarize insights with relevant visualizations  
+
+**Requirement 2: Price Prediction System**  
+- Build a machine learning model that can predict the **summed price** of 4 inherited homes  
+- Use conventional ML (e.g., Random Forest, Gradient Boosting) with extensive hyperparameter tuning  
+- Ensure the system is generalizable and suitable for real-time deployment  
 """)
 
 st.markdown("---")
@@ -52,11 +68,11 @@ st.markdown("---")
 st.header("🧭 Navigate the Dashboard")
 st.markdown("""
 Use the sidebar to explore:
-- 📊 **Feature Correlation**: See which attributes impact price most
-- ✅ **Hypothesis Validation**: Confirm modeling assumptions with data
-- 💸 **Price Prediction**: Run estimates for inherited or custom homes
-- 🧪 **Technical Summary**: Review model pipeline and performance
-- 📘 **User Guide**: Understand how to use the app effectively
+- 📊 **Feature Correlation**: See which attributes impact price most  
+- ✅ **Hypothesis Validation**: Confirm modeling assumptions with data  
+- 💸 **Price Prediction**: Run estimates for inherited or custom homes  
+- 🧪 **Technical Summary**: Review model pipeline and performance  
+- 📘 **User Guide**: Understand how to use the app effectively  
 """)
 
 st.markdown("---")
