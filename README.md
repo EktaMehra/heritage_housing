@@ -12,6 +12,125 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
 - **Interactive Visualizations**: Explore relationships between structural and historical property features and sale prices.
 - **User-Centric Dashboard**: Built using Streamlit for clear, actionable insights and real-time property valuation predictions.
 
+## Table of Contents
+
+- [Heritage Housing Price Prediction](#heritage-housing-price-prediction)
+      - [Project Highlights](#project-highlights)
+  - [Table of Contents](#table-of-contents)
+  - [Business Requirements](#business-requirements)
+    - [Key Client Goals](#key-client-goals)
+    - [Context \& Relevance](#context--relevance)
+    - [Deliverables](#deliverables)
+    - [Userstories](#user-stories)
+  - [Dataset Content](#dataset-content)
+    - [Source](#source)
+    - [Licensing](#licensing)
+    - [Structure](#structure)
+    - [Detailed Feature Descriptions](#detailed-feature-descriptions)
+    - [Dataset Quality and Observations](#dataset-quality-and-observations)
+    - [Data Limitations](#data-limitations)
+  - [Hypotheses and Validation Plan](#hypotheses-and-validation-plan)
+    - [Hypotheses](#hypotheses)
+      - [Attribute Correlation](#attribute-correlation)
+      - [Predictive Model](#predictive-model)
+    - [Validation Plan](#validation-plan)
+      - [Attribute Correlation Validation](#attribute-correlation-validation)
+      - [Predictive Model Validation](#predictive-model-validation)
+      - [Inherited Properties Prediction](#inherited-properties-prediction)
+  - [Mapping Business Requirements to ML Tasks](#mapping-business-requirements-to-ml-tasks)
+    - [Business Requirement: Understanding Attribute Correlations](#business-requirement-understanding-attribute-correlations)
+    - [Business Requirement: Predicting Sale Prices](#business-requirement-predicting-sale-prices)
+    - [Business Requirement: Unified Interface for Insights and Prediction](#business-requirement-unified-interface-for-insights-and-prediction)
+  - [ML Business Case](#ml-business-case)
+    - [Objectives of Machine Learning](#objectives-of-machine-learning)
+    - [Why Machine Learning?](#why-machine-learning)
+    - [Final Model Selection and Outcome](#final-model-selection-and-outcome)
+  - [Known Bugs \& Fixes](#known-bugs--fixes)
+    - [Bug: Mismatch Between Model Input and Trained Feature Set](#bug-mismatch-between-model-input-and-trained-feature-set)
+  - [Dashboard Design](#dashboard-design)
+    - [Design Philosophy](#design-philosophy)
+    - [Dashboard Structure](#dashboard-structure)
+    - [Future Enhancements](#future-enhancements)
+  - [Methodology](#methodology)
+    - [Business Understanding](#business-understanding)
+    - [Data Understanding](#data-understanding)
+    - [Data Preparation](#data-preparation)
+    - [Modeling](#modeling)
+    - [Evaluation](#evaluation)
+    - [Deployment](#deployment)
+  - [Project Features \& Outcomes](#project-features--outcomes)
+    - [Project Features](#project-features)
+    - [Project Outcomes](#project-outcomes)
+      - [Business Requirement 1: Attribute Correlation](#business-requirement-1-attribute-correlation)
+      - [Business Requirement 2: Sale Price Prediction](#business-requirement-2-sale-price-prediction)
+      - [Dashboard](#dashboard)
+  - [Testing](#testing)
+    - [Unit Testing](#unit-testing)
+    - [Model Evaluation](#model-evaluation)
+    - [Dashboard Testing](#dashboard-testing)
+    - [Compatibility \& Manual Checks](#compatibility--manual-checks)
+  - [Deployment](#deployment-1)
+    - [Deployment Steps](#deployment-steps)
+    - [Deployment Considerations](#deployment-considerations)
+  - [Technologies Used](#technologies-used)
+    - [Programming Language](#programming-language)
+    - [Key Libraries and Frameworks](#key-libraries-and-frameworks)
+      - [Data Handling](#data-handling)
+      - [Data Visualization](#data-visualization)
+      - [Feature Engineering and Preprocessing](#feature-engineering-and-preprocessing)
+      - [Machine Learning](#machine-learning)
+      - [Model Interpretation](#model-interpretation)
+    - [Dashboard and Deployment](#dashboard-and-deployment)
+  - [Credits](#credits)
+    - [Data Sources](#data-sources)
+    - [Educational Resources](#educational-resources)
+    - [Visual and Media Assets](#visual-and-media-assets)
+    - [Tools and Packages](#tools-and-packages)
+  - [Acknowledgements](#acknowledgements)
+  - [Project Impact](#project-impact)
+
+## Business Requirements
+
+---
+
+The client—representing a local planning authority—has inherited four **heritage-listed residential properties** and seeks support in evaluating their fair market value. Due to regulatory constraints and the unique nature of heritage properties, traditional valuation approaches may fall short. This project provides a **data-driven approach** to forecasting prices, identifying key value drivers, and ensuring consistent and transparent appraisals.
+
+### Key Client Goals
+
+- **Understand Attribute Correlations**  
+  Identify which structural and historical features most strongly influence sale prices. This helps ensure heritage valuation is not skewed by subjective or outdated assumptions.
+
+- **Predict Fair Market Prices**  
+  Use a robust regression model to predict sale prices for the inherited properties and other heritage homes, aligned with market benchmarks.
+
+- **Enable Strategic Planning**  
+  Support data-backed planning, resource allocation, and potential redevelopment efforts by offering clear pricing insights.
+
+### Context & Relevance
+
+Heritage properties are unique due to architectural preservation, age, and location factors. This model addresses the valuation challenges by training on a comprehensive dataset, engineering features that reflect property age and use, and testing accuracy on held-out and inherited data.
+
+### Deliverables
+
+- **Correlational Insights**: Interactive visualizations of the most important features (e.g., `OverallQual`, `GrLivArea`, `GarageArea`) and their relationship with sale prices.
+  ![Impact of Overall Quality vs Sale Price Chart](outputs/visuals/key_driver_overallqual.png)
+- **Predictive Model**: A trained machine learning model capable of predicting property values with high accuracy.
+  ![Inherited Properties Predictions](outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png)
+  ![Test Dataset Predictions](outputs/visuals/predicted_vs_actual_rf_vs_gbr.png)
+- **Dashboard Interface**: A Streamlit dashboard where users can:
+  - Explore correlations,
+  - Predict property prices in real time,
+  - Review technical details of the modeling process.
+  ![Dashboard Screenshot](static/images/dashboard_screenshot.PNG)
+
+### User Stories
+
+User stories were created to define functional requirements and ensure the project stays aligned with the client’s real-world needs. These stories guided the design of the dashboard, the machine learning pipeline, and the visual outputs.
+
+🔗 [The full list of user stories for this project can be found here](https://github.com/users/EktaMehra/projects/5/views/1).
+
+---
+
 ## Dataset Content
 
 ---
@@ -81,42 +200,6 @@ As part of the project's initial data collecting phase, the datasets' quality wa
 - Imputation may introduce slight biases due to missing data.
 - The dataset is limited to a specific geographic context (e.g., Ames, Iowa), which may affect generalizability.
 - Outliers were addressed but remain a consideration in model performance.
-
----
-
-## Business Requirements
-
----
-
-The client—representing a local planning authority—has inherited four **heritage-listed residential properties** and seeks support in evaluating their fair market value. Due to regulatory constraints and the unique nature of heritage properties, traditional valuation approaches may fall short. This project provides a **data-driven approach** to forecasting prices, identifying key value drivers, and ensuring consistent and transparent appraisals.
-
-### Key Client Goals
-
-- **Understand Attribute Correlations**  
-  Identify which structural and historical features most strongly influence sale prices. This helps ensure heritage valuation is not skewed by subjective or outdated assumptions.
-
-- **Predict Fair Market Prices**  
-  Use a robust regression model to predict sale prices for the inherited properties and other heritage homes, aligned with market benchmarks.
-
-- **Enable Strategic Planning**  
-  Support data-backed planning, resource allocation, and potential redevelopment efforts by offering clear pricing insights.
-
-### Context & Relevance
-
-Heritage properties are unique due to architectural preservation, age, and location factors. This model addresses the valuation challenges by training on a comprehensive dataset, engineering features that reflect property age and use, and testing accuracy on held-out and inherited data.
-
-### Deliverables
-
-- **Correlational Insights**: Interactive visualizations of the most important features (e.g., `OverallQual`, `GrLivArea`, `GarageArea`) and their relationship with sale prices.
-  ![Impact of Overall Quality vs Sale Price Chart](outputs/visuals/key_driver_overallqual.png)
-- **Predictive Model**: A trained machine learning model capable of predicting property values with high accuracy.
-  ![Inherited Properties Predictions](outputs/visuals/inherited_predictions_vs_hypothetical_actuals.png)
-  ![Test Dataset Predictions](outputs/visuals/predicted_vs_actual_rf_vs_gbr.png)
-- **Dashboard Interface**: A Streamlit dashboard where users can:
-  - Explore correlations,
-  - Predict property prices in real time,
-  - Review technical details of the modeling process.
-  ![Dashboard Screenshot](static/images/dashboard_screenshot.PNG)
 
 ---
 
@@ -307,14 +390,6 @@ This occurred because the trained model was expecting a **fully preprocessed inp
 
 - The bug was eliminated, and predictions now align with the trained model’s structure.  
 - This reinforced the importance of using a **single, serialised pipeline** for consistency across training and deployment.
-
-## User Stories
-
----
-
-User stories were created to define functional requirements and ensure the project stays aligned with the client’s real-world needs. These stories guided the design of the dashboard, the machine learning pipeline, and the visual outputs.
-
-🔗 [The full list of user stories for this project can be found here](https://github.com/users/EktaMehra/projects/5/views/1).
 
 ---
 
