@@ -68,7 +68,8 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
     - [Unit Testing](#unit-testing)
     - [Model Evaluation](#model-evaluation)
     - [Dashboard Testing](#dashboard-testing)
-    - [Compatibility \& Manual Checks](#compatibility--manual-checks)
+    - [User Story Validation Checklist](#user-story-validation-checklist)
+    - [Compatibility & Manual Checks](#compatibility--manual-checks)
   - [Deployment](#deployment-1)
     - [Deployment Steps](#deployment-steps)
     - [Deployment Considerations](#deployment-considerations)
@@ -673,8 +674,6 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 - **Prediction Logic**: Validated that model outputs updated in real time based on inputs.
 - **Output Format**: Checked for clear, readable presentation of results and prediction summaries.
 
----
-
 ### User Story Validation Checklist
 
 | User Story                                                                   | Validation Status |
@@ -710,8 +709,9 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 - Tested across browsers (Chrome, Edge, Firefox).
 - Simulated various input edge cases to ensure robustness and error handling.
-- Below is a checklist of manual tests performed to verify core project functionalities:
-  | User Story                        | Manual Test                                                                                           | Outcome |
+- Below is a checklist of **manual tests** performed to verify core project functionalities:
+  
+| User Story                        | Manual Test                                                                                           | Outcome |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
 | **Source Data**                   | Verified download and integrity of Ames Housing dataset from Kaggle                                   | ✅ Pass  |
 | **Dataset Documentation**         | Confirmed README includes dataset description and variables list                                      | ✅ Pass  |
@@ -755,6 +755,8 @@ To ensure clean, readable, and PEP8-compliant code, all .py files and Jupyter no
 
 Result:
 ✅ All project files pass PEP8 validation with no critical warnings or errors remaining
+
+---
 
 ## Deployment
 
