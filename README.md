@@ -785,7 +785,7 @@ The Heritage Housing dashboard was deployed using **Heroku**, making the tool pu
    - Linked the GitHub repository to **Heroku** for continuous deployment.
    - Enabled auto-deploy from the `main` branch.
    - New commits pushed to GitHub automatically trigger redeployment.
-
+![Deployment screenshot](static/images/Deployment_ss.PNG)
 ---
 
 ### Deployment Considerations
