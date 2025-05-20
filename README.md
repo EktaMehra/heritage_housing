@@ -706,11 +706,39 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 | **Dashboard Deployment**: App deployed to Streamlit Cloud                    | ✅                 |
 | **README.md**: Clear, complete, and informative                              | ✅                 |
 
-
 ### Compatibility & Manual Checks
 
 - Tested across browsers (Chrome, Edge, Firefox).
 - Simulated various input edge cases to ensure robustness and error handling.
+- Below is a checklist of manual tests performed to verify core project functionalities:
+  | User Story                        | Manual Test                                                                                           | Outcome |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
+| **Source Data**                   | Verified download and integrity of Ames Housing dataset from Kaggle                                   | ✅ Pass  |
+| **Dataset Documentation**         | Confirmed README includes dataset description and variables list                                      | ✅ Pass  |
+| **Data Cleaning**                 | Manually inspected null values and outliers in `02_Data_Cleaning.ipynb`                               | ✅ Pass  |
+| **Feature Selection**             | Confirmed correlation heatmap and PPS correctly identify key features                                 | ✅ Pass  |
+| **Feature Engineering**           | Verified new features (`HouseAge`, `LivingLotRatio`) are correctly computed and stored                | ✅ Pass  |
+| **Price Analysis**                | Validated that price trends are visually represented in notebook and dashboard                        | ✅ Pass  |
+| **Model Training**                | Manually checked all models trained, scored, and compared in `05_Model_Training_and_Evaluation.ipynb` | ✅ Pass  |
+| **Model Iteration**               | Verified GridSearchCV performed across 6+ hyperparameters for RF, GBR, Ridge, SVR, DT                 | ✅ Pass  |
+| **Model Comparison**              | Confirmed consolidated R², MAE, RMSE results saved and visualized                                     | ✅ Pass  |
+| **Model Performance Metrics**     | Cross-checked displayed metrics against test outputs                                                  | ✅ Pass  |
+| **Data Visualization**            | Verified all visuals (heatmaps, scatter plots, residuals) are rendered correctly                      | ✅ Pass  |
+| **Data Preparation**              | Manually tested encoding, imputation, scaling steps in pipeline                                       | ✅ Pass  |
+| **Data Limitations**              | Confirmed known limitations are noted in README and dashboard                                         | ✅ Pass  |
+| **Saved Artefact Validation**     | Tested loading of saved pipeline, model, and predictions from disk                                    | ✅ Pass  |
+| **Display-Ready Output**          | Verified predictions output clean, readable format with all relevant fields                           | ✅ Pass  |
+| **Inherited Property Simulation** | Confirmed Streamlit page loads inherited data and returns predictions                                 | ✅ Pass  |
+| **Final Model Integration**       | Tested full prediction pipeline end-to-end using final model                                          | ✅ Pass  |
+| **Prediction Page**               | Manually entered inputs and received predictions instantly                                            | ✅ Pass  |
+| **Add the Necessary Visuals**     | Confirmed all visuals (feature importance, metrics, residuals) are present                            | ✅ Pass  |
+| **Home Page**                     | Ensured landing page includes objective, client story, and navigation info                            | ✅ Pass  |
+| **User Guide Page**               | Verified app usage instructions are clearly presented                                                 | ✅ Pass  |
+| **App Pages**                     | Navigated each page and validated expected behavior and outputs                                       | ✅ Pass  |
+| **Final Model Pipeline**          | Confirmed `.pkl` file works on new data in deployment tests                                           | ✅ Pass  |
+| **Deployment Readiness Check**    | Validated full pipeline via `run_pipeline.py` and Streamlit app                                       | ✅ Pass  |
+| **Dashboard Deployment**          | Accessed deployed app on Streamlit Cloud and tested all features                                      | ✅ Pass  |
+| **README**                        | Reviewed for completeness, clarity, and accuracy                                                      | ✅ Pass  |
 
 > No known bugs or broken features were observed at the time of submission.
 
