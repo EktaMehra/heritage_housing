@@ -675,6 +675,38 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 ---
 
+### User Story Validation Checklist
+
+| User Story                                                                   | Validation Status |
+| ---------------------------------------------------------------------------- | ----------------- |
+| **Source Data**: Reliable datasets identified and sourced                    | ✅                 |
+| **Dataset Documentation**: Variables and descriptions outlined               | ✅                 |
+| **Data Cleaning**: Raw data cleaned and made analysis-ready                  | ✅                 |
+| **Feature Selection**: Top predictors selected via correlation/PPS           | ✅                 |
+| **Feature Engineering**: New features created and added                      | ✅                 |
+| **Price Analysis**: Visual insights into price patterns delivered            | ✅                 |
+| **Model Training & Optimization**: Multiple models trained and tuned         | ✅                 |
+| **Model Iterations**: Versioning through tuning and CV applied               | ✅                 |
+| **Model Comparison**: Models compared using R², MAE, RMSE                    | ✅                 |
+| **Model Performance Metrics**: Metrics presented in dashboard                | ✅                 |
+| **Data Visualization**: Key visuals added to support trends                  | ✅                 |
+| **Data Preparation**: Encoding, scaling, and pipeline setup complete         | ✅                 |
+| **Data Characteristics & Limitations**: Limitations stated in README         | ✅                 |
+| **Saved Artefact Validation**: Artefacts tested and working in app           | ✅                 |
+| **Display-Ready Output Generation**: Predictions rendered clearly            | ✅                 |
+| **Inherited Properties Simulation**: Predictions for 4 inherited homes shown | ✅                 |
+| **Final Model Integration**: Best model wrapped in deployable pipeline       | ✅                 |
+| **Prediction Page**: Manual input + instant prediction working               | ✅                 |
+| **Add the necessary visuals**: Model results visualized for hypotheses       | ✅                 |
+| **Home Page – Project Overview**: Clear project goals shown                  | ✅                 |
+| **User Guide Page – App Navigation Help**: Guide to app usage included       | ✅                 |
+| **App Pages**: Navigation + display logic fully implemented                  | ✅                 |
+| **Final Model Pipeline**: Pipeline tested for one-click prediction           | ✅                 |
+| **Deployment Readiness Check**: Full end-to-end tested before deploy         | ✅                 |
+| **Dashboard Deployment**: App deployed to Streamlit Cloud                    | ✅                 |
+| **README.md**: Clear, complete, and informative                              | ✅                 |
+
+
 ### Compatibility & Manual Checks
 
 - Tested across browsers (Chrome, Edge, Firefox).
