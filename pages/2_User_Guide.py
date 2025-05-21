@@ -44,25 +44,25 @@ st.header("🔍 What to Expect From Each Page")
 st.markdown("""
 Here’s a quick overview of what each section offers:
 
-- 🏠 **Home**  
+- 🏠 **Home**
   Introduction to the project, client scenario, and navigation guide.
 
-- 📚 **Summary**  
+- 📚 **Summary**
   Business context, key results, and takeaways — ideal for stakeholders.
 
-- 📘 **User Guide**  
+- 📘 **User Guide**
   You're here! Get help using the app and understanding key inputs.
 
-- 📈 **Feature Correlation**  
+- 📈 **Feature Correlation**
   Explore how different attributes (e.g., quality, area, garage) relate to price using interactive heatmaps and scatter plots.
 
-- ✅ **Hypothesis Validation**  
+- ✅ **Hypothesis Validation**
   Visual evidence for or against common assumptions (e.g., "bigger garage = higher price").
 
-- 💸 **Price Prediction**  
+- 💸 **Price Prediction**
   Predict sale prices for 4 inherited homes or run custom estimates.
 
-- 📚 **Technical Summary**  
+- 📚 **Technical Summary**
   Dive into how the model was trained, evaluated, and deployed — for technical reviewers.
 """)
 

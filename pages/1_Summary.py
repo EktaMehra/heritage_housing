@@ -25,7 +25,7 @@ except Exception as e:
 # --- PAGE TITLE ---
 st.title("📌 Heritage Housing Project Summary")
 st.markdown("""
-This summary page gives a high-level overview of the key findings, business outcomes, and modeling results  
+This summary page gives a high-level overview of the key findings, business outcomes, and modeling results
 delivered through the Heritage Housing Price Prediction App.
 ---
 """)
@@ -33,17 +33,17 @@ delivered through the Heritage Housing Price Prediction App.
 # --- BUSINESS GOALS ---
 st.header("📈 Business Objectives")
 st.write("""
-- Predict market-aligned prices for 4 inherited heritage homes  
-- Identify the most influential features impacting sale price  
+- Predict market-aligned prices for 4 inherited heritage homes
+- Identify the most influential features impacting sale price
 - Provide stakeholders with an interpretable, data-driven dashboard
 """)
 
 # --- EDA & MODELING TAKEAWAYS ---
 st.header("📊 Key Findings from EDA & Modeling")
 st.markdown("""
-- **Overall Quality**, **GrLivArea**, and **GarageArea** show strong positive correlation with price  
-- New features like **HouseAge**, **FinishedBsmtRatio**, and **LivingLotRatio** added meaningful predictive power  
-- Random Forest model selected after comparing Linear Regression, XGBoost, and Gradient Boosting  
+- **Overall Quality**, **GrLivArea**, and **GarageArea** show strong positive correlation with price
+- New features like **HouseAge**, **FinishedBsmtRatio**, and **LivingLotRatio** added meaningful predictive power
+- Random Forest model selected after comparing Linear Regression, XGBoost, and Gradient Boosting
 - Achieved **R² = 0.87** on test data — demonstrating strong generalization
 """)
 

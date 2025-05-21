@@ -151,7 +151,6 @@ try:
     - For modeling, features highly correlated with `LogSalePrice` are valuable predictors.
     """)
 
-
     # --- INSIGHTS ---
     st.header("💡 Key Insights")
     st.markdown("""

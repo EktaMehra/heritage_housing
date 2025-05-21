@@ -1,3 +1,14 @@
+"""
+Heritage Housing – Inference Script
+
+Purpose:
+This script runs predictions on new raw property data using the finalized deployment pipeline.
+It processes input data, applies the trained model, and saves the output with predicted prices.
+
+Usage:
+Run this script as a standalone module to perform batch inference on new properties.
+"""
+
 import pandas as pd
 from utils.deployment_pipeline import predict_from_raw
 
@@ -7,6 +18,7 @@ RAW_DATA_PATH = "data/raw/inherited_houses.csv"
 X_TRAIN_PATH = "data/processed/final/X_train.csv"
 MODEL_PATH = "outputs/models/final_random_forest_pipeline.pkl"
 OUTPUT_PATH = "outputs/predictions/new_data_predictions.csv"
+
 
 def main():
     print("Running inference using deployment pipeline...")
@@ -30,6 +42,7 @@ def main():
 
     print("\nSample predictions:")
     print(prediction_df[["Predicted_LogSalePrice", "Predicted_SalePrice"]].head())
+
 
 if __name__ == "__main__":
     main()

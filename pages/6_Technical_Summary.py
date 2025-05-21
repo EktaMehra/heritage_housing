@@ -95,9 +95,9 @@ Random Forest consistently outperformed other models in both accuracy and reliab
 
 st.markdown("""
 **Model Scores Summary**:
-- **Random Forest**: R² = 0.87, MAE ≈ £13,000, RMSE ≈ £21,000  
-- **XGBoost**: R² = 0.85, MAE ≈ £14,500  
-- **Gradient Boosting**: Slightly underperformed compared to RF/XGB  
+- **Random Forest**: R² = 0.87, MAE ≈ £13,000, RMSE ≈ £21,000
+- **XGBoost**: R² = 0.85, MAE ≈ £14,500
+- **Gradient Boosting**: Slightly underperformed compared to RF/XGB
 """)
 
 st.success("✅ The final Random Forest model achieved an R² of 0.87 on test data, successfully meeting the business objective of predicting fair property values with high reliability.")
