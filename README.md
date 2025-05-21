@@ -71,6 +71,7 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
     - [Dashboard Testing](#dashboard-testing)
     - [User Story Validation Checklist](#user-story-validation-checklist)
     - [Compatibility & Manual Checks](#compatibility--manual-checks)
+    - [Code Validation](#code-validation)
   - [Deployment](#deployment-1)
     - [Deployment Steps](#deployment-steps)
     - [Deployment Considerations](#deployment-considerations)
@@ -745,17 +746,29 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 ### Code Validation
 
-To ensure clean, readable, and PEP8-compliant code, all .py files and Jupyter notebooks were validated using the Code Institute’s online PEP8 linter tool:
+To ensure clean, readable, and PEP8-compliant code, all Python files were validated using the Code Institute’s online PEP8 linter tool:
 [PEP8](https://pep8ci.herokuapp.com/)
+
+**Files Checked:**
+
+- Home.py
+- run_pipeline.py
+- utils/deployment_pipeline.py
+- pages/1_Summary.py
+- pages/2_User_Guide.py
+- pages/3_Feature_Correlation.py
+- pages/4_Hypothesis_Validation.py
+- pages/5_Price_Prediction.py
+- pages/6_Technical_Summary.py
 
 **Manual Validation Process:**
 
-- Each script and notebook was copied into the CI linter
+- Each script was copied into the CI linter
 - Errors and warnings were reviewed line by line
-- Necessary formatting changes were made (e.g., line length, indentation, spacing, unused imports)
+- Necessary formatting changes were made (e.g., indentation, spacing, unused imports)
 
 Result:
-✅ All project files pass PEP8 validation with no critical warnings or errors remaining
+✅ All files pass PEP8 validation with no critical warnings or errors remaining
 
 ---
 
