@@ -1,3 +1,10 @@
+"""
+Heritage Housing – User Guide Page
+
+Purpose:
+Offers instructions and tips to help users navigate the dashboard, interpret outputs, and use the prediction tool effectively.
+"""
+
 import streamlit as st
 from PIL import Image
 

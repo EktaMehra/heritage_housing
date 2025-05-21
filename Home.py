@@ -1,3 +1,24 @@
+"""
+Heritage Housing – Home Page (Streamlit)
+
+This is the landing page of the Heritage Housing Price Prediction App.
+
+Purpose:
+- Introduce the project and its objectives
+- Explain the client scenario and inherited property context
+- Outline the business requirements
+- Guide users through dashboard navigation
+
+Includes:
+- Banner image
+- Project overview
+- Description of inherited property use case
+- Business requirement summary
+- Navigation guide for app sections
+
+This page sets the foundation for users exploring price estimation and feature insights for heritage-listed residential properties.
+"""
+
 import streamlit as st
 from PIL import Image
 

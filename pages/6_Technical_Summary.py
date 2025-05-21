@@ -1,3 +1,11 @@
+"""
+Heritage Housing – Technical Summary Page
+
+Purpose:
+Presents a technical breakdown of the model pipeline, evaluation metrics, preprocessing steps, and final deployment design.
+Intended for technical reviewers and future developers.
+"""
+
 import streamlit as st
 from PIL import Image
 import os

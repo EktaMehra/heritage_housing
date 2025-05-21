@@ -1,3 +1,20 @@
+"""
+Hypothesis Validation – Streamlit Page
+
+This page validates three key business hypotheses central to the Heritage Housing project:
+
+1. Feature-Value Relationship: Top features (e.g., OverallQual, GrLivArea) significantly drive sale prices.
+2. Model Accuracy: The trained models meet or exceed the performance threshold of R² ≥ 0.75.
+3. Inherited Pricing Validity: Model-predicted values for heritage properties align with realistic Ames market prices.
+
+Each hypothesis is supported by:
+- Visual evidence (correlation heatmaps, scatter plots, residuals)
+- Quantitative metrics (R², MAE, RMSE)
+- Downloadable visuals and clear interpretation
+
+The validation process confirms model robustness, value driver alignment, and real-world applicability.
+"""
+
 import streamlit as st
 from PIL import Image
 import os

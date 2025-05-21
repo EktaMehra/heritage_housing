@@ -1,3 +1,22 @@
+"""
+Feature Correlation Analysis – Streamlit Page
+
+This dashboard module:
+- Visualizes feature-to-target correlations using heatmaps and bar charts
+- Supports interactive selection of custom features for analysis
+- Highlights top predictors for LogSalePrice
+- Provides a pairwise scatter matrix to identify interactions and outliers
+- Presents interpretable business insights for model justification
+
+Input:
+- X_test.csv (processed features)
+- y_test.csv (target values to compute LogSalePrice)
+
+Output:
+- Plotly heatmaps, bar plots, scatter matrices
+- Embedded interpretation and project-specific insights
+"""
+
 import streamlit as st
 import pandas as pd
 import plotly.express as px

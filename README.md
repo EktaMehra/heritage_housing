@@ -16,6 +16,7 @@ Welcome to the **Heritage Housing Price Prediction** project! This tool is desig
 
 - [Heritage Housing Price Prediction](#heritage-housing-price-prediction)
       - [Project Highlights](#project-highlights)
+  
   - [Table of Contents](#table-of-contents)
   - [Business Requirements](#business-requirements)
     - [Key Client Goals](#key-client-goals)

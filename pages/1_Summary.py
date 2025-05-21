@@ -1,3 +1,11 @@
+"""
+Heritage Housing – Summary Page
+
+Purpose:
+Provides a non-technical summary of the project objectives, business problem, and outcomes.
+Intended for stakeholders who want a high-level understanding without code-level detail.
+"""
+
 import streamlit as st
 import pandas as pd
 from PIL import Image

@@ -1,3 +1,19 @@
+"""
+Heritage Housing – Price Prediction Page (Streamlit)
+
+This page enables:
+1. Display of predicted sale prices for inherited heritage-listed properties.
+2. Custom price prediction form where users can enter property details and receive an estimated sale price.
+
+Features:
+- Form-based inputs for key structural and quality attributes
+- On-the-fly feature engineering and one-hot encoding to match model training
+- Real-time prediction using a serialized Random Forest pipeline
+- Detailed prediction summary, user interpretation notes, and CSV download
+
+This serves both business users (for inherited home pricing) and external users (custom scenario testing).
+"""
+
 import streamlit as st
 import pandas as pd
 import numpy as np
