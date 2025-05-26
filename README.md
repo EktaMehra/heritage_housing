@@ -356,7 +356,7 @@ After training and evaluating multiple models, **Gradient Boosting Regressor** w
 - **MAE ≈ £13,000**
 - **RMSE ≈ £21,000**
 
-These metrics met and exceeded the project's business requirement of achieving **R2 ≥ 0.75**, confirming that the model can reliably estimate sale prices of heritage and standard properties. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
+These metrics met and exceeded the project's business requirement of achieving **R² ≥ 0.75** on unseen test data, confirming the model can reliably estimate sale prices of heritage and standard properties. While actual prices for inherited homes are unavailable, simulated evaluations showed reasonable predictive behavior aligned with market expectations. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
 
 ✅ **Business objective met:** The ML solution delivers accuracy, interpretability, and practical usability in line with the needs of housing stakeholders and estate planners.
 
