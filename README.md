@@ -222,7 +222,7 @@ This project is grounded in data-driven hypotheses about what influences house p
 
 #### Predictive Model
 
-- A regression model trained on the cleaned dataset will achieve an **R² score ≥ 0.75**, demonstrating strong generalization on unseen test data.
+- A regression model trained on the cleaned dataset will achieve an **R2 score ≥ 0.75**, demonstrating strong generalization on unseen test data.
 - The model should produce **realistic predictions** for the 4 inherited heritage properties, aligning with similar homes in the dataset.
 
 ### Validation Plan
@@ -241,7 +241,7 @@ This project is grounded in data-driven hypotheses about what influences house p
 - **Model Training**:  
   - Train multiple regressors (Linear Regression, Random Forest, XGBoost).
 - **Evaluation Metrics**:  
-  - Use R², MAE, and RMSE to assess predictive accuracy.
+  - Use R2, MAE, and RMSE to assess predictive accuracy.
 - **Cross-Validation**:  
   - Apply k-fold validation to assess model stability and prevent overfitting.
 
@@ -289,7 +289,7 @@ Each business requirement has been directly translated into specific data visual
 
 - **ML Tasks**:  
   - Train regression models (Linear, Random Forest, XGBoost) on engineered and cleaned features.
-  - Use evaluation metrics (R², MAE, RMSE) to compare performance.
+  - Use evaluation metrics (R2, MAE, RMSE) to compare performance.
   - Perform hyperparameter tuning using GridSearchCV or RandomizedSearchCV.
 
 - **Dashboard Integration**:  
@@ -346,17 +346,17 @@ Machine learning plays a central role in this project by enabling accurate, auto
   Once trained, the model can handle new property inputs and scale across additional use cases without rework.
 
 - **Evaluation Metrics for Confidence**:  
-  Metrics like R², MAE, and RMSE are used to validate performance, making results explainable and trustworthy.
+  Metrics like R2, MAE, and RMSE are used to validate performance, making results explainable and trustworthy.
 
 ### Final Model Selection and Outcome
 
 After training and evaluating multiple models, **Gradient Boosting Regressor** was selected for final deployment. It achieved:
 
-- **R² = 0.8774**
+- **R2 = 0.8774**
 - **MAE ≈ £13,000**
 - **RMSE ≈ £21,000**
 
-These metrics met and exceeded the project's business requirement of achieving **R² ≥ 0.75**, confirming that the model can reliably estimate sale prices of heritage and standard properties. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
+These metrics met and exceeded the project's business requirement of achieving **R2 ≥ 0.75**, confirming that the model can reliably estimate sale prices of heritage and standard properties. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
 
 ✅ **Business objective met:** The ML solution delivers accuracy, interpretability, and practical usability in line with the needs of housing stakeholders and estate planners.
 
@@ -487,7 +487,7 @@ The application is divided into the following pages:
 
    **Key Content**:
    - Overview of data cleaning, feature engineering, model training, and evaluation.
-   - Display of evaluation metrics (R², MAE, RMSE).
+   - Display of evaluation metrics (R2, MAE, RMSE).
    - Model comparison results (Random Forest, XGBoost, etc.).
    - Downloadable performance visualizations (bar plots, residual charts).
    - Expanders and radio buttons for pipeline visibility.
@@ -551,7 +551,7 @@ Help local authorities and property owners estimate fair market prices for herit
 - Tested multiple regression algorithms: Linear Regression, Random Forest, XGBoost.
 - Performed hyperparameter tuning using `GridSearchCV`.
 - Evaluated models on a hold-out test set using:
-  - **R² Score**
+  - **R2 Score**
   - **MAE (Mean Absolute Error)**
   - **RMSE (Root Mean Squared Error)**
 
@@ -563,7 +563,7 @@ Help local authorities and property owners estimate fair market prices for herit
 
 **Test Dataset**:
 
-- R² Score > 0.75 achieved.
+- R2 Score > 0.75 achieved.
 - Residuals and prediction plots analyzed for consistency.
 
 **Inherited Properties**:
@@ -624,7 +624,7 @@ This section summarizes the key deliverables of the Heritage Housing project and
 
 #### Business Requirement 2: Sale Price Prediction  
 
-- Final Random Forest model achieved **R² > 0.75** on test data.  
+- Final Random Forest model achieved **R2 > 0.75** on test data.  
 - Successfully predicted market-aligned prices for all 4 inherited properties.
 
 #### Dashboard  
@@ -654,13 +654,13 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 
 **Metrics Used**:
 
-- **R² Score**: Assesses model fit.
+- **R2 Score**: Assesses model fit.
 - **MAE**: Evaluates average prediction error.
 - **RMSE**: Highlights magnitude of larger errors.
 
 **Process**:
 
-- Final model (Random Forest) achieved **R² > 0.75** on test data.
+- Final model (Random Forest) achieved **R2 > 0.75** on test data.
 - Inherited property predictions aligned with local market expectations.
 - Residual plots reviewed to confirm no major bias or variance issues.
 
@@ -688,7 +688,7 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 | **Price Analysis**: Visual insights into price patterns delivered            | ✅                 |
 | **Model Training & Optimization**: Multiple models trained and tuned         | ✅                 |
 | **Model Iterations**: Versioning through tuning and CV applied               | ✅                 |
-| **Model Comparison**: Models compared using R², MAE, RMSE                    | ✅                 |
+| **Model Comparison**: Models compared using R2, MAE, RMSE                    | ✅                 |
 | **Model Performance Metrics**: Metrics presented in dashboard                | ✅                 |
 | **Data Visualization**: Key visuals added to support trends                  | ✅                 |
 | **Data Preparation**: Encoding, scaling, and pipeline setup complete         | ✅                 |
@@ -723,7 +723,7 @@ Thorough testing was conducted to ensure the accuracy, reliability, and usabilit
 | **Price Analysis**                | Validated that price trends are visually represented in notebook and dashboard                        | ✅ Pass  |
 | **Model Training**                | Manually checked all models trained, scored, and compared in `05_Model_Training_and_Evaluation.ipynb` | ✅ Pass  |
 | **Model Iteration**               | Verified GridSearchCV performed across 6+ hyperparameters for RF, GBR, Ridge, SVR, DT                 | ✅ Pass  |
-| **Model Comparison**              | Confirmed consolidated R², MAE, RMSE results saved and visualized                                     | ✅ Pass  |
+| **Model Comparison**              | Confirmed consolidated R2, MAE, RMSE results saved and visualized                                     | ✅ Pass  |
 | **Model Performance Metrics**     | Cross-checked displayed metrics against test outputs                                                  | ✅ Pass  |
 | **Data Visualization**            | Verified all visuals (heatmaps, scatter plots, residuals) are rendered correctly                      | ✅ Pass  |
 | **Data Preparation**              | Manually tested encoding, imputation, scaling steps in pipeline                                       | ✅ Pass  |

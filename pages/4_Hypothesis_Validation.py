@@ -4,12 +4,12 @@ Hypothesis Validation – Streamlit Page
 This page validates three key business hypotheses central to the Heritage Housing project:
 
 1. Feature-Value Relationship: Top features (e.g., OverallQual, GrLivArea) significantly drive sale prices.
-2. Model Accuracy: The trained models meet or exceed the performance threshold of R² ≥ 0.75.
+2. Model Accuracy: The trained models meet or exceed the performance threshold of R2 ≥ 0.75.
 3. Inherited Pricing Validity: Model-predicted values for heritage properties align with realistic Ames market prices.
 
 Each hypothesis is supported by:
 - Visual evidence (correlation heatmaps, scatter plots, residuals)
-- Quantitative metrics (R², MAE, RMSE)
+- Quantitative metrics (R2, MAE, RMSE)
 - Downloadable visuals and clear interpretation
 
 The validation process confirms model robustness, value driver alignment, and real-world applicability.
@@ -135,8 +135,8 @@ with st.expander("📊 Predicted vs Actual Sale Prices"):
 
 st.markdown("""
 📌 **Interpretation**:
-- Random Forest consistently outperformed other models across R², MAE, and RMSE.
-- Final R² score on the test set was **0.87**, meeting the business target of 0.75.
+- Random Forest consistently outperformed other models across R2, MAE, and RMSE.
+- Final R2 score on the test set was **0.87**, meeting the business target of 0.75.
 - Predicted vs actual plot shows tight clustering along the diagonal, indicating good generalization.
 ✅ **Hypothesis Confirmed**.
 """)

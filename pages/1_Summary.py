@@ -44,7 +44,7 @@ st.markdown("""
 - **Overall Quality**, **GrLivArea**, and **GarageArea** show strong positive correlation with price
 - New features like **HouseAge**, **FinishedBsmtRatio**, and **LivingLotRatio** added meaningful predictive power
 - Random Forest model selected after comparing Linear Regression, XGBoost, and Gradient Boosting
-- Achieved **R² = 0.87** on test data — demonstrating strong generalization
+- Achieved **R2 = 0.87** on test data — demonstrating strong generalization
 """)
 
 # --- VISUALS ---
