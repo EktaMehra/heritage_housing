@@ -350,7 +350,7 @@ Machine learning plays a central role in this project by enabling accurate, auto
 
 ### Final Model Selection and Outcome
 
-After training and evaluating multiple models, **Gradient Boosting Regressor** was selected for final deployment. It achieved:
+After training and evaluating multiple models, **Random Forest Regressor** was selected for final deployment. It achieved:
 
 - **R2 = 0.8774**
 - **MAE ≈ £13,000**
