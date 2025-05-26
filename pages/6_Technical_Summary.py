@@ -71,8 +71,8 @@ elif pipeline_section == "Model Training":
     """)
     st.markdown("""
     - **Model Selection**:
-        - Compared Random Forest, XGBoost, and Gradient Boosting
-        - Random Forest selected for best test R2 and lowest MAE
+        - Compared Random Forest, Gradient Boosting, XGBoost, Ridge, SVR, and Decision Tree
+        - **Random Forest Regressor** selected for deployment due to high R2, low MAE, model robustness, and interpretability
     - **Final Pipeline**:
         - Combined the `preprocessor` and `RandomForestRegressor` using `Pipeline()`
         - Preprocessing includes:
@@ -96,10 +96,10 @@ Gradient Boosting Regressor emerged as the top model, delivering highly accurate
 st.markdown("""
 **Model Scores Summary**:
 - **Gradient Boosting Regressor:** R2 = 0.8774, MAE ≈ £13,000, RMSE ≈ £21,000
-- **Random Forest Regressor:** R2 = 0.8766, MAE ≈ £13,100
-- **Ridge Regression:** R2 = 0.8686, MAE ≈ £13,900
-- **Support Vector Regressor:** R2 = 0.7908, MAE ≈ £15,300
-- **Decision Tree:** R2 = 0.8058, MAE ≈ £18,300
+- **Random Forest Regressor:** R2 = 0.8766, MAE ≈ £13,100, RMSE ≈ £21,050
+- **Ridge Regression:** R2 = 0.8686, MAE ≈ £13,900, RMSE ≈ £21,700
+- **Support Vector Regressor:** R2 = 0.7908, MAE ≈ £15,300, RMSE ≈ £27,400
+- **Decision Tree:** R2 = 0.8058, MAE ≈ £18,300, RMSE ≈ £26,500
 """)
 
 st.success("✅ Although Gradient Boosting had the best test metrics, Random Forest was selected for final deployment as it had almost identical performance (R² = 0.8766 vs 0.8774) but Random Forest is more durable, easy to interpret, and more robust in production environments.")

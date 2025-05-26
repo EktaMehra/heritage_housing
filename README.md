@@ -354,7 +354,7 @@ After training and evaluating multiple models, **Random Forest Regressor** was s
 
 - **R2 = 0.8766**
 - **MAE ≈ £13,100**
-- **RMSE ≈ £21,100**
+- **RMSE ≈ £21,050**
 
 ℹ️ Although the final Gradient Boosting model achieved an R2 of 0.8774 on test data Random Forest had almost identical performance (R2 of 0.8766), Random Forest was selected for final deployment due to its durability, interpretability, and robustness in production environments. These metrics met and exceeded the project's business requirement of achieving **R² ≥ 0.75** on unseen test data, confirming the model can reliably estimate sale prices of heritage and standard properties. While actual prices for inherited homes are unavailable, simulated evaluations showed reasonable predictive behavior aligned with market expectations. The model was integrated into an interactive dashboard, allowing users to generate real-time price predictions and explore drivers of valuation.
 
