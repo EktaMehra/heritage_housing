@@ -111,24 +111,24 @@ st.markdown("---")
 st.subheader("Hypothesis 2: Model Accuracy Meets Business Need")
 st.write("""
 **Validation Steps:**
-- Trained both Random Forest and XGBoost
-- Evaluated model performance using **R2**, **MAE**, and **RMSE** on test data
+- Trained multiple models: Linear, Ridge, Decision Tree, Random Forest, Gradient Boosting, SVR
+- Evaluated model performance using **R²**, **MAE**, and **RMSE** on the test set
 """)
 
-with st.expander("📊 R2 Scores Across Models"):
+with st.expander("📊 R² Scores Across Models"):
     image_block(
         "outputs/visuals/r2_score_comparison.png",
-        "Model R2 Comparison")
+        "Model R² Comparison")
 
 with st.expander("📊 MAE Scores Across Models"):
     image_block(
         "outputs/visuals/mae_score_comparison.png",
-        "Model R2 Comparison")
+        "Model MAE Comparison")
 
 with st.expander("📊 RMSE Scores Across Models"):
     image_block(
         "outputs/visuals/rmse_score_comparison.png",
-        "Model R2 Comparison")
+        "Model RMSE Comparison")
 
 with st.expander("📊 Predicted vs Actual Sale Prices"):
     image_block(
@@ -137,10 +137,12 @@ with st.expander("📊 Predicted vs Actual Sale Prices"):
 
 st.markdown("""
 📌 **Interpretation**:
-- Random Forest consistently outperformed other models across R2, MAE, and RMSE.
-- Final R2 score on the test set was **0.87**, meeting the business target of 0.75.
-- Predicted vs actual plot shows tight clustering along the diagonal, indicating good generalization.
-✅ **Hypothesis Confirmed**.
+- **Gradient Boosting Regressor achieved the highest accuracy** (R² = 0.8774), closely followed by Random Forest (R² = 0.8766).
+- **Random Forest** was selected for final deployment due to its **stability, interpretability, and suitability for real-world use**.
+- Final model R² > 0.87 confirms strong generalization.
+- Predicted vs actual plot shows tight clustering along the diagonal, validating the model’s reliability.
+
+✅ **Hypothesis Confirmed**: The final model meets the R² ≥ 0.75 business threshold and generalizes well to unseen data.
 """)
 
 st.markdown("---")

@@ -90,17 +90,19 @@ st.header("Model Performance")
 
 st.markdown("""
 Model performance was evaluated using R2, MAE, and RMSE across both training and testing datasets.
-Random Forest consistently outperformed other models in both accuracy and reliability.
+Gradient Boosting Regressor emerged as the top model, delivering highly accurate and consistent results.
 """)
 
 st.markdown("""
 **Model Scores Summary**:
-- **Random Forest**: R2 = 0.87, MAE ≈ £13,000, RMSE ≈ £21,000
-- **XGBoost**: R2 = 0.85, MAE ≈ £14,500
-- **Gradient Boosting**: Slightly underperformed compared to RF/XGB
+- **Gradient Boosting Regressor:** R2 = 0.8774, MAE ≈ £13,000, RMSE ≈ £21,000
+- **Random Forest Regressor:** R2 = 0.8766, MAE ≈ £13,100
+- **Ridge Regression:** R2 = 0.8686, MAE ≈ £13,900
+- **Support Vector Regressor:** R2 = 0.7908, MAE ≈ £15,300
+- **Decision Tree:** R2 = 0.8058, MAE ≈ £18,300
 """)
 
-st.success("✅ The final Random Forest model achieved an R2 of 0.87 on test data, successfully meeting the business objective of predicting fair property values with high reliability.")
+st.success("✅ Although Gradient Boosting had the best test metrics, Random Forest was selected for final deployment as it had almost identical performance (R² = 0.8766 vs 0.8774) but Random Forest is more durable, easy to interpret, and more robust in production environments.")
 
 with st.expander("📊 R2 Comparison"):
     st.image(
@@ -175,9 +177,11 @@ st.header("Conclusion")
 
 st.markdown("""
 The final model and pipeline met both the technical and business goals of the project:
+
 - Achieved **R2 = 0.87** on unseen data
 - Accurately predicted prices for inherited homes
 - Delivered a user-friendly app for future property estimation
 
 These results support the model’s reliability for data-driven pricing decisions in the real estate domain.
+
 """)
